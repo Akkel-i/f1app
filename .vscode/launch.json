@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-F1appApplication<f1app>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "haagahelia.f1app.F1appApplication",
+            "projectName": "f1app",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

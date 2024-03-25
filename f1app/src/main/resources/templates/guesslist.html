@@ -4,42 +4,35 @@
 <head>
     <title>guess List</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<!--     <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
- --></head>
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+</head>
 
 <body>
-<!--     <h1 style="padding: 20px;">Tässä lista arvauksista </h1>
- -->    <h1 >Tässä lista arvauksista </h1>
+   <h1 >Tässä lista arvauksista </h1>
 
     <p>
-<!--     <table class="table table-striped" style="padding: 20px;">
- -->    <table>
+   <table>
         <tr>
             <th> id</th>
             <th>Guess</th>
         </tr>
 
-<!--         <tr th:each="guess : ${guesses}">
+        <tr th:each="guess : ${guesses}">
+
             <td>
-                <span th:text="${guess.id}">Guess id</span>
+                <span th:text="${guess.Id}"></span>
             </td>
+
             <td>
-                <span th:text="${guess.guess}">Guess</span>
-            </td> -->
+                <span th:text="${guess.guess}"></span>
+            </td>
 
-            
-                <!-- <button type="button" th:onclick="${book.id}">Delete</button>
-                <button type="button" th:onclick="@{'/deleteBook/' + ${book.id}}">Delete</button> 
-                <button type="button" th:onClick="@{/deletebook/} + ${book.id}" >Delete</button>  -->
-                <!-- Ei tietoa miksi pitää olla kaksi riviä, mutta toimi.... -->
+        </tr>
 
-            
-        <!-- </tr> -->
     </table>
     </p>
-<!--     <p><a th:href="@{/newbook}" class="btn btn-success">Add a new guess</a></p> tässä funktio menos
-    <p><a th:href="@{/index}" class="btn btn-success">Go to index page</a></p>  -->
 
+    <p><a th:href="@{/index}" class="btn btn-success">go to index</a></p>
 
 
 </body>
