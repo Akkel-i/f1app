@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <!--     <script src="../js/laptimes.js"></script>
+ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <title>Laptimes</title>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="index" class="nav-link" aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="guesslist" class="nav-link">Guesses</a></li>
+                <li class="nav-item"><a href="laptimes" class="nav-link active">Laptimes</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">XXX</a></li>
+                <li class="nav-item list-group-item-danger "><a href="#" class="nav-link">Log out</a></li>
+            </ul>
+        </header>
+    </div>
+
+    <!-- https://getbootstrap.com/docs/3.4/css/ Täällä dokumentaatio -->
+
+    <!-- TEKSTI -->
+    <h2 style="color: red;">Albon (RED)</h2>
+    <h1>VS</h1>
+    <h2 style="color: blue;">Alonso (BLUE)</h2>
+    <div style="position: relative; left: 25%;">
+        <canvas id="myChart" style="width:100%;max-width:800px"></canvas>
+    </div>
+
+    <!-- Syötä kierrosaika-filu -->
+    <input type="file" onchange="previewFile()" /><br />
+    <p class="content"></p>
+
+    <!-- Piirrä kaavio naapi -->
+    <button onclick="drawChart()">Piirrä kaavio</button>
+
+
+    <!-- LINE CHART TIEDOT -->
+    <script>
+
+        function previewFile() {
+            const content = document.querySelector(".content");
+            const [file] = document.querySelector("input[type=file]").files;
+            const reader = new FileReader();
+
+            reader.addEventListener(
+                "load",
+                () => {
+                    // this will then display a text file
+                    content.innerText = reader.result;
+                },
+                false,
+            );
+
+            if (file) {
+                reader.readAsText(file);
+
+                // PITÄISI PIIRTÄÄ ##FILE## TIEDOILLA CHART MUTTA EHKÄ VÄÄRÄSSÄ MUODOSSA??
+                const xValues = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+
+                new Chart("myChart", {
+                    type: "line",
+                    data: {
+                        labels: xValues,
+                        datasets: [{
+                            data: [86.916, 97.861, 88.447, 83.720, 83.645, 83.852, 83.254, 82.767, 83.183, 82.978],
+                            borderColor: "red",
+                            fill: false
+                        }, {
+                            /* data: [83.294, 83.196, 82.795, 82.769, 83.345, 82.608, 82.939, 82.904, 83.187, 83.455], */
+                            data: file,
+                            /* data: [83], */
+                            borderColor: "blue",
+                            fill: false
+                        }]
+                    },
+                    options: {
+                        legend: { display: false },
+                        title: {
+                            display: true,
+                            text: "X-axle: lapcount --- Y-axle: laptime",
+                            fontSize: 16
+                        }
+                    }
+                });
+
+            }
+        }
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -8,23 +8,119 @@
 </head>
 
 <body>
+    <!-- HEADER -->
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="guesslist" class="nav-link active" aria-current="page">Guesses</a></li>
+            <li class="nav-item"><a href="laptimes" class="nav-link">Laptimes</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">XXX</a></li>
+            <li class="nav-item list-group-item-danger "><a href="#" class="nav-link" >Log out</a></li>
+          </ul>
+        </header>
+      </div>
+
+<!-- https://getbootstrap.com/docs/3.4/css/ Täällä dokumentaatio -->
    <h1 >Tässä lista arvauksista </h1>
 
+   <!-- TAULUKKO -->
     <p>
-   <table>
+   <table class="table table-bordered" style="padding: 40px;">
         <tr>
             <th> id</th>
             <th>Guess</th>
+            <th>Verstappen</th>
+            <th>Perez</th>
+            <th>Leclerc</th>
+            <th>Sainz</th>
+            <th>Piastri</th>
+            <th>Norris</th>
+            <th>Russel</th>
+            <th>Hamilton</th>
+            <th>Alonso</th>
+            <th>Stroll</th>
+            <th>Tsunoda</th>
+            <th>Ricciardo</th>
+            <th>Hulkenberg</th>
+            <th>Magnussen</th>
+            <th>Albon</th>
+            <th>Sargent</th>
+            <th>Bottas</th>
+            <th>Zhou</th>
+            <th>Gasly</th>
+            <th>Ocon</th>
         </tr>
 
         <tr th:each="guess : ${guesses}">
 
             <td>
-                <span th:text="${guess.Id}"></span>
+                <span th:text="${guess.guessId}"></span>
             </td>
 
             <td>
                 <span th:text="${guess.guess}"></span>
+            </td>
+            <td>
+                <span th:text="${guess.verGuess}"></span>
+            </td>
+            <td>
+                <span th:text="${guess.perGuess}"></span>
+            </td>
+            <td>
+                <span th:text="${guess.lecGuess}"></span>
+            </td>
+            <td>
+                <span th:text="${guess.saiGuess}"></span>
+            </td>
+            <td>
+                <span th:text="${guess.piaGuess}"></span>
+            </td>
+            <td>
+                <span th:text="${guess.norGuess}"></span>
+            </td>
+            <td>
+                <span th:text="${guess.rusGuess}"></span>
+            </td>
+            <td>
+                <span th:text="${guess.hamGuess}"></span>
+            </td>
+            <td>
+                <span th:text="${guess.aloGuess}"></span>
+            </td>
+            <td>
+                <span th:text="${guess.strGuess}"></span>
+            </td>
+            <td>
+                <span th:text="${guess.tsuGuess}"></span>
+            </td>
+            <td>
+                <span th:text="${guess.ricGuess}"></span>
+            </td>
+            <td>
+                <span th:text="${guess.hulGuess}"></span>
+            </td>
+            <td>
+                <span th:text="${guess.magGuess}"></span>
+            </td>
+            <td>
+                <span th:text="${guess.albGuess}"></span>
+            </td>
+            <td>
+                <span th:text="${guess.sarGuess}"></span>
+            </td>
+            <td>
+                <span th:text="${guess.botGuess}"></span>
+            </td>
+            <td>
+                <span th:text="${guess.zhoGuess}"></span>
+            </td>
+            <td>
+                <span th:text="${guess.gasGuess}"></span>
+            </td>
+            <td>
+                <span th:text="${guess.ocoGuess}"></span>
             </td>
 
         </tr>

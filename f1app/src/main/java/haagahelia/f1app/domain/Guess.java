@@ -14,6 +14,26 @@ public class Guess {
     private Integer guessId;
 /*     private User guessMaker;  vasta kun kunnnon database */
     private String guess;
+    private Integer verGuess;
+    private Integer perGuess;
+    private Integer lecGuess;
+    private Integer saiGuess;
+    private Integer piaGuess;
+    private Integer norGuess;
+    private Integer rusGuess;
+    private Integer hamGuess;
+    private Integer aloGuess;
+    private Integer strGuess;
+    private Integer tsuGuess;
+    private Integer ricGuess;
+    private Integer hulGuess;
+    private Integer magGuess;
+    private Integer albGuess;
+    private Integer sarGuess;
+    private Integer botGuess;
+    private Integer zhoGuess;
+    private Integer gasGuess;
+    private Integer ocoGuess;
 
 
 
@@ -23,14 +43,198 @@ public class Guess {
         super();
         this.guessId = null;
         this.guess = null;
+        this.verGuess = null;
+        this.perGuess = null;
+        this.lecGuess = null;
+        this.saiGuess = null;
+        this.hulGuess = null;
+        this.botGuess = null;
+        this.ocoGuess = null;
+        this.gasGuess = null;
+        this.zhoGuess = null;
+        this.sarGuess = null;
+        this.sarGuess = null;
+        this.albGuess = null;
+        this.magGuess = null;
+        this.ricGuess = null;
+        this.tsuGuess = null;
+        this.strGuess = null;
+        this.piaGuess = null;
+        this.norGuess = null;
+        this.rusGuess = null;
+        this.hamGuess = null;
+
     }
 
-    public Guess(Integer guessId, String guess) {
+    public Integer getGuessId() {
+        return guessId;
+    }
+
+    public Integer getPiaGuess() {
+        return piaGuess;
+    }
+
+    public void setPiaGuess(Integer piaGuess) {
+        this.piaGuess = piaGuess;
+    }
+
+    public void setNorGuess(Integer norGuess) {
+        this.norGuess = norGuess;
+    }
+
+    public void setRusGuess(Integer rusGuess) {
+        this.rusGuess = rusGuess;
+    }
+
+    public void setHamGuess(Integer hamGuess) {
+        this.hamGuess = hamGuess;
+    }
+
+    public void setAloGuess(Integer aloGuess) {
+        this.aloGuess = aloGuess;
+    }
+
+    public void setStrGuess(Integer strGuess) {
+        this.strGuess = strGuess;
+    }
+
+    public void setTsuGuess(Integer tsuGuess) {
+        this.tsuGuess = tsuGuess;
+    }
+
+    public void setRicGuess(Integer ricGuess) {
+        this.ricGuess = ricGuess;
+    }
+
+    public void setMagGuess(Integer magGuess) {
+        this.magGuess = magGuess;
+    }
+
+    public void setAlbGuess(Integer albGuess) {
+        this.albGuess = albGuess;
+    }
+
+    public void setSarGuess(Integer sarGuess) {
+        this.sarGuess = sarGuess;
+    }
+
+    public void setZhoGuess(Integer zhoGuess) {
+        this.zhoGuess = zhoGuess;
+    }
+
+    public void setGasGuess(Integer gasGuess) {
+        this.gasGuess = gasGuess;
+    }
+
+    public void setOcoGuess(Integer ocoGuess) {
+        this.ocoGuess = ocoGuess;
+    }
+
+    public Integer getNorGuess() {
+        return norGuess;
+    }
+
+    public Integer getRusGuess() {
+        return rusGuess;
+    }
+
+    public Integer getHamGuess() {
+        return hamGuess;
+    }
+
+    public Integer getAloGuess() {
+        return aloGuess;
+    }
+
+    public Integer getStrGuess() {
+        return strGuess;
+    }
+
+    public Integer getTsuGuess() {
+        return tsuGuess;
+    }
+
+    public Integer getRicGuess() {
+        return ricGuess;
+    }
+
+    public Integer getMagGuess() {
+        return magGuess;
+    }
+
+    public Integer getAlbGuess() {
+        return albGuess;
+    }
+
+    public Integer getSarGuess() {
+        return sarGuess;
+    }
+
+    public Integer getZhoGuess() {
+        return zhoGuess;
+    }
+
+    public Integer getGasGuess() {
+        return gasGuess;
+    }
+
+    public Integer getOcoGuess() {
+        return ocoGuess;
+    }
+
+    public void setGuessId(Integer guessId) {
         this.guessId = guessId;
-        this.guess = guess;
     }
 
-    // get
+    public Integer getVerGuess() {
+        return verGuess;
+    }
+
+    public void setMaxGuess(Integer verGuess) {
+        this.verGuess = verGuess;
+    }
+
+    public Integer getPerGuess() {
+        return perGuess;
+    }
+
+    public void setPerGuess(Integer perGuess) {
+        this.perGuess = perGuess;
+    }
+
+    public Integer getLecGuess() {
+        return lecGuess;
+    }
+
+    public void setLecGuess(Integer lecGuess) {
+        this.lecGuess = lecGuess;
+    }
+
+    public Integer getSaiGuess() {
+        return saiGuess;
+    }
+
+    public void setSaiGuess(Integer saiGuess) {
+        this.saiGuess = saiGuess;
+    }
+
+    public Integer getHulGuess() {
+        return hulGuess;
+    }
+
+    public void setHulGuess(Integer hulGuess) {
+        this.hulGuess = hulGuess;
+    }
+
+    public Integer getBotGuess() {
+        return botGuess;
+    }
+
+    public void setBotGuess(Integer botGuess) {
+        this.botGuess = botGuess;
+    }
+
+
 
     public Integer getId() {
         return guessId;
@@ -40,7 +244,6 @@ public class Guess {
         return guess;
     }
 
-    // set
 
     public void setId(Integer guessId) {
         this.guessId = guessId;
@@ -50,13 +253,49 @@ public class Guess {
         this.guess = guess;
     }
 
-
-    
-    @Override
-    public String toString() {
-        return "Guess [id=" + guessId + ", guess=" + guess + "]";
+    public Guess(Integer guessId, String guess, Integer verGuess, Integer perGuess, Integer lecGuess,
+            Integer saiGuess, Integer piaGuess, Integer norGuess, Integer rusGuess, Integer hamGuess, Integer aloGuess,
+            Integer strGuess, Integer tsuGuess, Integer ricGuess, Integer hulGuess, Integer magGuess, Integer albGuess,
+            Integer sarGuess, Integer botGuess, Integer zhoGuess, Integer gasGuess, Integer ocoGuess) {
+        this.guessId = guessId;
+        this.guess = guess;
+        this.verGuess = verGuess;
+        this.perGuess = perGuess;
+        this.lecGuess = lecGuess;
+        this.saiGuess = saiGuess;
+        this.piaGuess = piaGuess;
+        this.norGuess = norGuess;
+        this.rusGuess = rusGuess;
+        this.hamGuess = hamGuess;
+        this.aloGuess = aloGuess;
+        this.strGuess = strGuess;
+        this.tsuGuess = tsuGuess;
+        this.ricGuess = ricGuess;
+        this.hulGuess = hulGuess;
+        this.magGuess = magGuess;
+        this.albGuess = albGuess;
+        this.sarGuess = sarGuess;
+        this.botGuess = botGuess;
+        this.zhoGuess = zhoGuess;
+        this.gasGuess = gasGuess;
+        this.ocoGuess = ocoGuess;
     }
 
+    @Override
+    public String toString() {
+        return "Guess [guessId=" + guessId + ", guess=" + guess + ", verGuess=" + verGuess + ", perGuess="
+                + perGuess + ", lecGuess=" + lecGuess + ", saiGuess=" + saiGuess + ", piaGuess=" + piaGuess
+                + ", norGuess=" + norGuess + ", rusGuess=" + rusGuess + ", hamGuess=" + hamGuess + ", aloGuess="
+                + aloGuess + ", strGuess=" + strGuess + ", tsuGuess=" + tsuGuess + ", ricGuess=" + ricGuess
+                + ", hulGuess=" + hulGuess + ", magGuess=" + magGuess + ", albGuess=" + albGuess + ", sarGuess="
+                + sarGuess + ", botGuess=" + botGuess + ", zhoGuess=" + zhoGuess + ", gasGuess=" + gasGuess
+                + ", ocoGuess=" + ocoGuess + "]";
+    }
+
+
+    
+  
+    
 
 
 

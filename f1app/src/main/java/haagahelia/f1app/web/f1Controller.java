@@ -32,4 +32,10 @@ public class f1Controller {
         return "guesslist"; // guesslist.html
     }
 
+        // http://localhost:8080/laptimes
+        @RequestMapping(value = "/laptimes1", method = RequestMethod.GET)
+        public String laptimesPage() {
+            return "laptimes1"; // laptimes.html
+        }
+
 }
