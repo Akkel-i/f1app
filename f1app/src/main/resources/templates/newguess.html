@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <title>Teretulemast f1 maailmaan</title>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="index" class="nav-link" aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="guesslist" class="nav-link">Guesses</a></li>
+                <li class="nav-item"><a href="laptimes" class="nav-link">Laptimes</a></li>
+                <li class="nav-item"><a href="newguess" class="nav-link active">New Guess</a></li>
+                <li class="nav-item list-group-item-danger "><a href="#" class="nav-link">Log out</a></li>
+            </ul>
+        </header>
+    </div>
+
+    <!-- https://getbootstrap.com/docs/3.4/css/ Täällä dokumentaatio -->
+
+    <!-- TEKSTI -->
+    <h1>
+        Here to make a new guess :)
+    </h1>
+
+
+    <!-- FORM EI TALLENNA MAKER JA VER JOSTAIN SYYSTÄ!!! -->
+    <form method="POST" action="#" th:action="@{/saveguess}" th:object=${guess}>
+        <p>Tekijä: <input type="text" th:field="${guess.guessMaker}" /></p>
+
+        <!-- ALla perjaatees toimiva dropdown menu.. ver id ei oo oikein?? -->
+        <!--         <p>Ver: <input type="text" th:field="${guess.verGuess}" /></p> -->
+        <p>Ver:
+            <select id="verDropdown">
+                <option value="">Select Position for driver</option>
+                <th:block th:each="i: ${#numbers.sequence(1, 20)}">
+                    <option th:value="${i}" th:text="${i}"></option>
+                </th:block>
+            </select>
+        </p>
+        <p>Per: <input type="text" th:field="${guess.perGuess}" /></p>
+        <p>Lec: <input type="text" th:field="${guess.lecGuess}" /></p>
+        <p>Sai: <input type="text" th:field="${guess.saiGuess}" /></p>
+        <p>Pia: <input type="text" th:field="${guess.piaGuess}" /></p>
+        <p>Nor: <input type="text" th:field="${guess.norGuess}" /></p>
+        <p>Rus: <input type="text" th:field="${guess.rusGuess}" /></p>
+        <p>Ham: <input type="text" th:field="${guess.hamGuess}" /></p>
+        <p>Alo: <input type="text" th:field="${guess.aloGuess}" /></p>
+        <p>Str: <input type="text" th:field="${guess.strGuess}" /></p>
+        <p>Tsu: <input type="text" th:field="${guess.tsuGuess}" /></p>
+        <p>Ric: <input type="text" th:field="${guess.ricGuess}" /></p>
+        <p>Hul: <input type="text" th:field="${guess.hulGuess}" /></p>
+        <p>Mag: <input type="text" th:field="${guess.magGuess}" /></p>
+        <p>Alb: <input type="text" th:field="${guess.albGuess}" /></p>
+        <p>Sar: <input type="text" th:field="${guess.sarGuess}" /></p>
+        <p>Bot: <input type="text" th:field="${guess.botGuess}" /></p>
+        <p>Zho: <input type="text" th:field="${guess.zhoGuess}" /></p>
+        <p>Gas: <input type="text" th:field="${guess.gasGuess}" /></p>
+        <p>Oco: <input type="text" th:field="${guess.ocoGuess}" /></p>
+
+        <!--       <label for="categorylist">Category</label>
+         <select id="categorylist" th:field="*{category}" class="form-control">
+            <option th:each="category: ${categories}" th:value="${category.categoryId}" th:text="${category.name}">
+            </option>
+        </select> -->
+
+        <input type="submit" value="Add" />
+    </form>
+
+
+</body>
+
+</html>

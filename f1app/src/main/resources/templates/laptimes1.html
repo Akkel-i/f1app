@@ -53,18 +53,43 @@
             const content = document.querySelector(".content");
             const [file] = document.querySelector("input[type=file]").files;
             const reader = new FileReader();
+            var fileContent = "";
 
             reader.addEventListener(
                 "load",
                 () => {
                     // this will then display a text file
                     content.innerText = reader.result;
+                    fileContent = reader.result;
                 },
                 false,
             );
 
             if (file) {
                 reader.readAsText(file);
+
+                // muuttaa file string -> array
+                // Input string of numbers separated by commas
+                let numbersString = "1,2,3,4,5";
+
+                // Split the string into an array of substrings using the comma separator
+                let numbersArray = fileContent.split(',');
+
+                // Array to store the converted numbers
+                let resultArray = [];
+
+                // Iterate over each element in the array and convert it to a number
+                for (let i = 0; i < numbersArray.length; i++) {
+                    // Convert the string to a number using parseInt or parseFloat
+                    let num = parseFloat(numbersArray[i]);
+                    // Add the number to the result array
+                    resultArray.push(num);
+                }
+
+                // Display the resulting array
+                console.log(resultArray);
+
+
 
                 // PITÄISI PIIRTÄÄ ##FILE## TIEDOILLA CHART MUTTA EHKÄ VÄÄRÄSSÄ MUODOSSA??
                 const xValues = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14];

@@ -22,7 +22,7 @@
                 <li class="nav-item"><a href="index" class="nav-link" aria-current="page">Home</a></li>
                 <li class="nav-item"><a href="guesslist" class="nav-link">Guesses</a></li>
                 <li class="nav-item"><a href="laptimes" class="nav-link active">Laptimes</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">XXX</a></li>
+                <li class="nav-item"><a href="newguess" class="nav-link">New Guess</a></li>
                 <li class="nav-item list-group-item-danger "><a href="#" class="nav-link">Log out</a></li>
             </ul>
         </header>
@@ -38,42 +38,15 @@
         <canvas id="myChart" style="width:100%;max-width:800px"></canvas>
     </div>
 
-    <!-- Syötä kierrosaika-filu -->
-    <input type="file" onchange="previewFile()" /><br />
-    <p class="content"></p>
-
-    <!-- Piirrä kaavio naapi -->
-    <button onclick="drawChart()">Piirrä kaavio</button>
-
 
     <!-- LINE CHART TIEDOT -->
     <script>
 
-        function previewFile() {
-            const content = document.querySelector(".content");
-            const [file] = document.querySelector("input[type=file]").files;
-            const reader = new FileReader();
 
-            reader.addEventListener(
-                "load",
-                () => {
-                    // this will then display a text file
-                    content.innerText = reader.result;
-                },
-                false,
-            );
-
-            if (file) {
-                reader.readAsText(file);
-            }
-        }
-
-
-
-
+        // TEXT filusta ei voi oikein lukea, estoja päällä, eli tee repo laptimes ja sitten FORM jolla valitaan mitä esitetään ja siitä piirrä chart
+        // ESIMERKKI FORM täältä: https://pitwall.app/analysis/compare-lap-times?utf8=%E2%9C%93&season=76&race=1201&main_driver=17&compare_driver=22&button=
 
         /* TÄMÄ PIIRTÄÄ CHARTIN */
-        function drawChart(file) {
 
         const xValues = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
@@ -86,9 +59,8 @@
                     borderColor: "red",
                     fill: false
                 }, {
-                    /* data: [83.294, 83.196, 82.795, 82.769, 83.345, 82.608, 82.939, 82.904, 83.187, 83.455], */
-                    data: file,
-                    /* data: [83], */
+                    data: [83.294, 83.196, 82.795, 82.769, 83.345, 82.608, 82.939, 82.904, 83.187, 83.455], 
+                    /* data: file, */
                     borderColor: "blue",
                     fill: false
                 }]
@@ -102,7 +74,7 @@
                 }
             }
         });
-    }
+    
     </script>
 
 </body>

@@ -1,5 +1,6 @@
 package haagahelia.f1app.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,9 +12,10 @@ public class Guess {
     // atribuuti
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer guessId;
+    @Column(name = "guessId")
+    private Integer id;
 /*     private User guessMaker;  vasta kun kunnnon database */
-    private String guess;
+    private String guessMaker;
     private Integer verGuess;
     private Integer perGuess;
     private Integer lecGuess;
@@ -41,8 +43,7 @@ public class Guess {
 
     public Guess() {
         super();
-        this.guessId = null;
-        this.guess = null;
+        this.guessMaker = null;
         this.verGuess = null;
         this.perGuess = null;
         this.lecGuess = null;
@@ -66,8 +67,31 @@ public class Guess {
 
     }
 
-    public Integer getGuessId() {
-        return guessId;
+    public Guess(String guessMaker, Integer verGuess, Integer perGuess, Integer lecGuess,
+            Integer saiGuess, Integer piaGuess, Integer norGuess, Integer rusGuess, Integer hamGuess, Integer aloGuess,
+            Integer strGuess, Integer tsuGuess, Integer ricGuess, Integer hulGuess, Integer magGuess, Integer albGuess,
+            Integer sarGuess, Integer botGuess, Integer zhoGuess, Integer gasGuess, Integer ocoGuess) {
+        this.guessMaker = guessMaker;
+        this.verGuess = verGuess;
+        this.perGuess = perGuess;
+        this.lecGuess = lecGuess;
+        this.saiGuess = saiGuess;
+        this.piaGuess = piaGuess;
+        this.norGuess = norGuess;
+        this.rusGuess = rusGuess;
+        this.hamGuess = hamGuess;
+        this.aloGuess = aloGuess;
+        this.strGuess = strGuess;
+        this.tsuGuess = tsuGuess;
+        this.ricGuess = ricGuess;
+        this.hulGuess = hulGuess;
+        this.magGuess = magGuess;
+        this.albGuess = albGuess;
+        this.sarGuess = sarGuess;
+        this.botGuess = botGuess;
+        this.zhoGuess = zhoGuess;
+        this.gasGuess = gasGuess;
+        this.ocoGuess = ocoGuess;
     }
 
     public Integer getPiaGuess() {
@@ -182,9 +206,6 @@ public class Guess {
         return ocoGuess;
     }
 
-    public void setGuessId(Integer guessId) {
-        this.guessId = guessId;
-    }
 
     public Integer getVerGuess() {
         return verGuess;
@@ -237,53 +258,25 @@ public class Guess {
 
 
     public Integer getId() {
-        return guessId;
+        return id;
     }
 
-    public String getGuess() {
-        return guess;
+    public String getGuessMaker() {
+        return guessMaker;
     }
 
 
-    public void setId(Integer guessId) {
-        this.guessId = guessId;
+ 
+
+    public void setGuess(String guessMaker) {
+        this.guessMaker = guessMaker;
     }
 
-    public void setGuess(String guess) {
-        this.guess = guess;
-    }
 
-    public Guess(Integer guessId, String guess, Integer verGuess, Integer perGuess, Integer lecGuess,
-            Integer saiGuess, Integer piaGuess, Integer norGuess, Integer rusGuess, Integer hamGuess, Integer aloGuess,
-            Integer strGuess, Integer tsuGuess, Integer ricGuess, Integer hulGuess, Integer magGuess, Integer albGuess,
-            Integer sarGuess, Integer botGuess, Integer zhoGuess, Integer gasGuess, Integer ocoGuess) {
-        this.guessId = guessId;
-        this.guess = guess;
-        this.verGuess = verGuess;
-        this.perGuess = perGuess;
-        this.lecGuess = lecGuess;
-        this.saiGuess = saiGuess;
-        this.piaGuess = piaGuess;
-        this.norGuess = norGuess;
-        this.rusGuess = rusGuess;
-        this.hamGuess = hamGuess;
-        this.aloGuess = aloGuess;
-        this.strGuess = strGuess;
-        this.tsuGuess = tsuGuess;
-        this.ricGuess = ricGuess;
-        this.hulGuess = hulGuess;
-        this.magGuess = magGuess;
-        this.albGuess = albGuess;
-        this.sarGuess = sarGuess;
-        this.botGuess = botGuess;
-        this.zhoGuess = zhoGuess;
-        this.gasGuess = gasGuess;
-        this.ocoGuess = ocoGuess;
-    }
 
     @Override
     public String toString() {
-        return "Guess [guessId=" + guessId + ", guess=" + guess + ", verGuess=" + verGuess + ", perGuess="
+        return "Guess [guessId=" + id + ", guessMaker=" + guessMaker + ", verGuess=" + verGuess + ", perGuess="
                 + perGuess + ", lecGuess=" + lecGuess + ", saiGuess=" + saiGuess + ", piaGuess=" + piaGuess
                 + ", norGuess=" + norGuess + ", rusGuess=" + rusGuess + ", hamGuess=" + hamGuess + ", aloGuess="
                 + aloGuess + ", strGuess=" + strGuess + ", tsuGuess=" + tsuGuess + ", ricGuess=" + ricGuess

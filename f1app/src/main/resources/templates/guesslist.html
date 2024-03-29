@@ -16,7 +16,7 @@
             <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
             <li class="nav-item"><a href="guesslist" class="nav-link active" aria-current="page">Guesses</a></li>
             <li class="nav-item"><a href="laptimes" class="nav-link">Laptimes</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">XXX</a></li>
+            <li class="nav-item"><a href="newguess" class="nav-link">New Guess</a></li>
             <li class="nav-item list-group-item-danger "><a href="#" class="nav-link" >Log out</a></li>
           </ul>
         </header>
@@ -30,7 +30,7 @@
    <table class="table table-bordered" style="padding: 40px;">
         <tr>
             <th> id</th>
-            <th>Guess</th>
+            <th>GuessMaker</th>
             <th>Verstappen</th>
             <th>Perez</th>
             <th>Leclerc</th>
@@ -56,11 +56,10 @@
         <tr th:each="guess : ${guesses}">
 
             <td>
-                <span th:text="${guess.guessId}"></span>
+                <span th:text="${guess.id}"></span>
             </td>
-
             <td>
-                <span th:text="${guess.guess}"></span>
+                <span th:text="${guess.guessMaker}"></span>
             </td>
             <td>
                 <span th:text="${guess.verGuess}"></span>
@@ -128,7 +127,7 @@
     </table>
     </p>
 
-    <p><a th:href="@{/index}" class="btn btn-success">go to index</a></p>
+    <p><a th:href="@{/newguess}" class="btn btn-success">Make a new guess</a></p>
 
 
 </body>
