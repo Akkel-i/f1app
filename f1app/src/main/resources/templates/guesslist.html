@@ -62,7 +62,8 @@
                 <span th:text="${guess.guessMaker}"></span>
             </td>
             <td>
-                <span th:text="${guess.verGuess}"></span>
+                <!-- Tässä toimiva millä voi muokata taulun riviä oikean väriseksi, vielä lisää vertailu oikeaan riviin -->
+                <span td th:class="${guess.verGuess == 1} ? 'btn btn-success' : 'btn btn-danger'"  th:text="${guess.verGuess}"></span>
             </td>
             <td>
                 <span th:text="${guess.perGuess}"></span>

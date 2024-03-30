@@ -25,7 +25,7 @@ public class f1Controller {
     @RequestMapping(value = "/guesslist", method = RequestMethod.GET)
     public String getGuesses(Model model) {
 
-        // luo listan kaikista DB kirjoista
+        // luo listan kaikista DB arvauksista
         model.addAttribute("guesses", guessRepository.findAll());
 
         return "guesslist"; // guesslist.html
