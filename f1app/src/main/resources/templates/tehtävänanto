@@ -1,0 +1,18 @@
+Tee CRUD-sovellus, jolla voit ylläpitää jotakin sinulle mielenkiintoista tietoa kuten elokuvat, musiikki, urheilu, tilaukset, ... Ylläpito/hallintaliittymään pääsee ainoastaan sisäänkirjautunut käyttäjä, mutta tiedon katselunäkymään pääsee tarkastelemaan kuka tahansa sisäänkirjautumaton vierailija. Suunnittele ja rakenna sovellustasi varten tietokanta. Tietokannassa on minimissään kaksi toisiinsa liittyvää taulua.
+
+Toteuta Spring Boot -sovellus käyttäen seuraavia tekniikoita :
+
+Spring Boot Web (MVC)   
+Thymeleaf templates (HTML 5)
+JPA tai JDBCTemplate  (H2 tai PostgreSQL)
+Spring Boot Security
+Bean Validation (html form, @Valid )
+Spring Boot REST (JSON)
+
++ ja ainakin kahta (2) seuraavista tekniikoista:
+
+JPA-käsittely laajemmin( useita tietokantatauluja, @ManyToMany, findBy...-metodeja etc.)
+Testaus (JUnit,..)
+I18n (mm. monikielinen käyttöliittymä) 
+joku muu yllämainitsematon Spring Boot -toiminnallisuus
+AJAX JS/JQuery/React tms.

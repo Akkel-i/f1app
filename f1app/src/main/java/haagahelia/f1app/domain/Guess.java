@@ -42,7 +42,7 @@ public class Guess {
     // constructor
 
     public Guess() {
-        super();
+        /* super(); */
         this.guessMaker = null;
         this.verGuess = null;
         this.perGuess = null;
@@ -283,6 +283,18 @@ public class Guess {
                 + ", hulGuess=" + hulGuess + ", magGuess=" + magGuess + ", albGuess=" + albGuess + ", sarGuess="
                 + sarGuess + ", botGuess=" + botGuess + ", zhoGuess=" + zhoGuess + ", gasGuess=" + gasGuess
                 + ", ocoGuess=" + ocoGuess + "]";
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setGuessMaker(String guessMaker) {
+        this.guessMaker = guessMaker;
+    }
+
+    public void setVerGuess(Integer verGuess) {
+        this.verGuess = verGuess;
     }
 
 

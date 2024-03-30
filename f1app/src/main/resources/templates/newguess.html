@@ -39,7 +39,7 @@
         <!-- ALla perjaatees toimiva dropdown menu.. ver id ei oo oikein?? -->
         <!--         <p>Ver: <input type="text" th:field="${guess.verGuess}" /></p> -->
         <p>Ver:
-            <select id="verDropdown">
+            <select id="verDropdown" th:field="${guess.verGuess}">
                 <option value="">Select Position for driver</option>
                 <th:block th:each="i: ${#numbers.sequence(1, 20)}">
                     <option th:value="${i}" th:text="${i}"></option>
@@ -48,7 +48,15 @@
         </p>
         <p>Per: <input type="text" th:field="${guess.perGuess}" /></p>
         <p>Lec: <input type="text" th:field="${guess.lecGuess}" /></p>
-        <p>Sai: <input type="text" th:field="${guess.saiGuess}" /></p>
+        <!--         <p>Sai: <input type="text" th:field="${guess.saiGuess}" /></p> -->
+        <p>Sai:
+            <select id="saiDropdown" th:field="${guess.saiGuess}">
+                <option value="">Select Position for driver</option>
+                <th:block th:each="i: ${#numbers.sequence(1, 20)}">
+                    <option th:value="${i}" th:text="${i}"></option>
+                </th:block>
+            </select>
+        </p>
         <p>Pia: <input type="text" th:field="${guess.piaGuess}" /></p>
         <p>Nor: <input type="text" th:field="${guess.norGuess}" /></p>
         <p>Rus: <input type="text" th:field="${guess.rusGuess}" /></p>
