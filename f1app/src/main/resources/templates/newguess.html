@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Teretulemast f1 maailmaan</title>
 </head>
 
 <body>
+
+
     <!-- HEADER -->
     <div class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
@@ -30,6 +33,10 @@
     <h1>
         Here to make a new guess :)
     </h1>
+    <h3>
+        If you want to change your selection, select first "Select Position for driver"
+        and then select the new value!
+    </h3>
 
 
     <!-- FORM EI TALLENNA MAKER JA VER JOSTAIN SYYSTÄ!!! -->
@@ -39,40 +46,184 @@
         <!-- ALla perjaatees toimiva dropdown menu.. ver id ei oo oikein?? -->
         <!--         <p>Ver: <input type="text" th:field="${guess.verGuess}" /></p> -->
         <p>Ver:
-            <select id="verDropdown" th:field="${guess.verGuess}">
+            <select class="dropdown" th:field="${guess.verGuess}">
                 <option value="">Select Position for driver</option>
                 <th:block th:each="i: ${#numbers.sequence(1, 20)}">
                     <option th:value="${i}" th:text="${i}"></option>
                 </th:block>
             </select>
         </p>
-        <p>Per: <input type="text" th:field="${guess.perGuess}" /></p>
-        <p>Lec: <input type="text" th:field="${guess.lecGuess}" /></p>
+        <!-- <p>Per: <input type="text" th:field="${guess.perGuess}" /></p> -->
+        <p>Per:
+            <select class="dropdown" th:field="${guess.perGuess}">
+                <option value="">Select Position for driver</option>
+                <th:block th:each="i: ${#numbers.sequence(1, 20)}">
+                    <option th:value="${i}" th:text="${i}"></option>
+                </th:block>
+            </select>
+        </p>
+        <!-- <p>Lec: <input type="text" th:field="${guess.lecGuess}" /></p> -->
+        <p>Lec:
+            <select class="dropdown" th:field="${guess.lecGuess}">
+                <option value="">Select Position for driver</option>
+                <th:block th:each="i: ${#numbers.sequence(1, 20)}">
+                    <option th:value="${i}" th:text="${i}"></option>
+                </th:block>
+            </select>
+        </p>
         <!--         <p>Sai: <input type="text" th:field="${guess.saiGuess}" /></p> -->
         <p>Sai:
-            <select id="saiDropdown" th:field="${guess.saiGuess}">
+            <select class="dropdown" th:field="${guess.saiGuess}">
                 <option value="">Select Position for driver</option>
                 <th:block th:each="i: ${#numbers.sequence(1, 20)}">
                     <option th:value="${i}" th:text="${i}"></option>
                 </th:block>
             </select>
         </p>
-        <p>Pia: <input type="text" th:field="${guess.piaGuess}" /></p>
-        <p>Nor: <input type="text" th:field="${guess.norGuess}" /></p>
-        <p>Rus: <input type="text" th:field="${guess.rusGuess}" /></p>
-        <p>Ham: <input type="text" th:field="${guess.hamGuess}" /></p>
-        <p>Alo: <input type="text" th:field="${guess.aloGuess}" /></p>
-        <p>Str: <input type="text" th:field="${guess.strGuess}" /></p>
-        <p>Tsu: <input type="text" th:field="${guess.tsuGuess}" /></p>
-        <p>Ric: <input type="text" th:field="${guess.ricGuess}" /></p>
-        <p>Hul: <input type="text" th:field="${guess.hulGuess}" /></p>
-        <p>Mag: <input type="text" th:field="${guess.magGuess}" /></p>
-        <p>Alb: <input type="text" th:field="${guess.albGuess}" /></p>
-        <p>Sar: <input type="text" th:field="${guess.sarGuess}" /></p>
-        <p>Bot: <input type="text" th:field="${guess.botGuess}" /></p>
-        <p>Zho: <input type="text" th:field="${guess.zhoGuess}" /></p>
-        <p>Gas: <input type="text" th:field="${guess.gasGuess}" /></p>
-        <p>Oco: <input type="text" th:field="${guess.ocoGuess}" /></p>
+        <!--         <p>Pia: <input type="text" th:field="${guess.piaGuess}" /></p> -->
+        <p>Pia:
+            <select class="dropdown" th:field="${guess.piaGuess}">
+                <option value="">Select Position for driver</option>
+                <th:block th:each="i: ${#numbers.sequence(1, 20)}">
+                    <option th:value="${i}" th:text="${i}"></option>
+                </th:block>
+            </select>
+        </p>
+        <!-- <p>Nor: <input type="text" th:field="${guess.norGuess}" /></p> -->
+        <p>Nor:
+            <select class="dropdown" th:field="${guess.norGuess}">
+                <option value="">Select Position for driver</option>
+                <th:block th:each="i: ${#numbers.sequence(1, 20)}">
+                    <option th:value="${i}" th:text="${i}"></option>
+                </th:block>
+            </select>
+        </p>
+        <!-- <p>Rus: <input type="text" th:field="${guess.rusGuess}" /></p> -->
+        <p>Rus:
+            <select class="dropdown" th:field="${guess.rusGuess}">
+                <option value="">Select Position for driver</option>
+                <th:block th:each="i: ${#numbers.sequence(1, 20)}">
+                    <option th:value="${i}" th:text="${i}"></option>
+                </th:block>
+            </select>
+        </p>
+        <!-- <p>Ham: <input type="text" th:field="${guess.hamGuess}" /></p> -->
+        <p>Ham:
+            <select class="dropdown" th:field="${guess.hamGuess}">
+                <option value="">Select Position for driver</option>
+                <th:block th:each="i: ${#numbers.sequence(1, 20)}">
+                    <option th:value="${i}" th:text="${i}"></option>
+                </th:block>
+            </select>
+        </p>
+        <!-- <p>Alo: <input type="text" th:field="${guess.aloGuess}" /></p> -->
+        <p>Alo:
+            <select class="dropdown" th:field="${guess.aloGuess}">
+                <option value="">Select Position for driver</option>
+                <th:block th:each="i: ${#numbers.sequence(1, 20)}">
+                    <option th:value="${i}" th:text="${i}"></option>
+                </th:block>
+            </select>
+        </p>
+        <!-- <p>Str: <input type="text" th:field="${guess.strGuess}" /></p> -->
+        <p>Str:
+            <select class="dropdown" th:field="${guess.strGuess}">
+                <option value="">Select Position for driver</option>
+                <th:block th:each="i: ${#numbers.sequence(1, 20)}">
+                    <option th:value="${i}" th:text="${i}"></option>
+                </th:block>
+            </select>
+        </p>
+        <!-- <p>Tsu: <input type="text" th:field="${guess.tsuGuess}" /></p> -->
+        <p>Tsu:
+            <select class="dropdown" th:field="${guess.tsuGuess}">
+                <option value="">Select Position for driver</option>
+                <th:block th:each="i: ${#numbers.sequence(1, 20)}">
+                    <option th:value="${i}" th:text="${i}"></option>
+                </th:block>
+            </select>
+        </p>
+        <!-- <p>Ric: <input type="text" th:field="${guess.ricGuess}" /></p> -->
+        <p>Ric:
+            <select class="dropdown" th:field="${guess.ricGuess}">
+                <option value="">Select Position for driver</option>
+                <th:block th:each="i: ${#numbers.sequence(1, 20)}">
+                    <option th:value="${i}" th:text="${i}"></option>
+                </th:block>
+            </select>
+        </p>
+        <!-- <p>Hul: <input type="text" th:field="${guess.hulGuess}" /></p> -->
+        <p>Hul:
+            <select class="dropdown" th:field="${guess.hulGuess}">
+                <option value="">Select Position for driver</option>
+                <th:block th:each="i: ${#numbers.sequence(1, 20)}">
+                    <option th:value="${i}" th:text="${i}"></option>
+                </th:block>
+            </select>
+        </p>
+        <!-- <p>Mag: <input type="text" th:field="${guess.magGuess}" /></p> -->
+        <p>Mag:
+            <select class="dropdown" th:field="${guess.magGuess}">
+                <option value="">Select Position for driver</option>
+                <th:block th:each="i: ${#numbers.sequence(1, 20)}">
+                    <option th:value="${i}" th:text="${i}"></option>
+                </th:block>
+            </select>
+        </p>
+        <!-- <p>Alb: <input type="text" th:field="${guess.albGuess}" /></p> -->
+        <p>Alb:
+            <select class="dropdown" th:field="${guess.albGuess}">
+                <option value="">Select Position for driver</option>
+                <th:block th:each="i: ${#numbers.sequence(1, 20)}">
+                    <option th:value="${i}" th:text="${i}"></option>
+                </th:block>
+            </select>
+        </p>
+        <!-- <p>Sar: <input type="text" th:field="${guess.sarGuess}" /></p> -->
+        <p>Sar:
+            <select class="dropdown" th:field="${guess.sarGuess}">
+                <option value="">Select Position for driver</option>
+                <th:block th:each="i: ${#numbers.sequence(1, 20)}">
+                    <option th:value="${i}" th:text="${i}"></option>
+                </th:block>
+            </select>
+        </p>
+        <!-- <p>Bot: <input type="text" th:field="${guess.botGuess}" /></p> -->
+        <p>Bot:
+            <select class="dropdown" th:field="${guess.botGuess}">
+                <option value="">Select Position for driver</option>
+                <th:block th:each="i: ${#numbers.sequence(1, 20)}">
+                    <option th:value="${i}" th:text="${i}"></option>
+                </th:block>
+            </select>
+        </p>
+        <!-- <p>Zho: <input type="text" th:field="${guess.zhoGuess}" /></p> -->
+        <p>Zho:
+            <select class="dropdown" th:field="${guess.zhoGuess}">
+                <option value="">Select Position for driver</option>
+                <th:block th:each="i: ${#numbers.sequence(1, 20)}">
+                    <option th:value="${i}" th:text="${i}"></option>
+                </th:block>
+            </select>
+        </p>
+        <!-- <p>Gas: <input type="text" th:field="${guess.gasGuess}" /></p> -->
+        <p>Gas:
+            <select class="dropdown" th:field="${guess.gasGuess}">
+                <option value="">Select Position for driver</option>
+                <th:block th:each="i: ${#numbers.sequence(1, 20)}">
+                    <option th:value="${i}" th:text="${i}"></option>
+                </th:block>
+            </select>
+        </p>
+        <!-- <p>Oco: <input type="text" th:field="${guess.ocoGuess}" /></p> -->
+        <p>Oco:
+            <select class="dropdown" th:field="${guess.ocoGuess}">
+                <option value="">Select Position for driver</option>
+                <th:block th:each="i: ${#numbers.sequence(1, 20)}">
+                    <option th:value="${i}" th:text="${i}"></option>
+                </th:block>
+            </select>
+        </p>
 
         <!--       <label for="categorylist">Category</label>
          <select id="categorylist" th:field="*{category}" class="form-control">
@@ -82,6 +233,40 @@
 
         <input type="submit" value="Add" />
     </form>
+
+    <script>
+        // poistaa dropdown valikosta poistetun valinnan, eli ei voi olla duplicaateja
+        /*         $(function () {
+                    $('.dropdown').change(function () {
+                        dropdownval = $(this).val();
+                        if (dropdownval !== "") {
+                            $('.dropdown').not(this).find('option[value="' + dropdownval + '"]').remove();
+                        }
+                    });
+                }); */
+
+                // https://jsfiddle.net/a2amhqL3/
+        $(function () {
+            var removedOptions = {}; 
+            $('.dropdown').change(function () {
+                var dropdownval = $(this).val();
+
+                if (dropdownval !== "") {
+                    $('.dropdown').not(this).find('option[value="' + dropdownval + '"]').remove();
+
+                    removedOptions[this.id] = dropdownval;
+                } else {
+                    var id = this.id;
+                    if (removedOptions[id]) {
+                        var option = '<option value="' + removedOptions[id] + '">' + removedOptions[id] + '</option>';
+                        $('.dropdown').not(this).append(option);
+                        delete removedOptions[id]; 
+                    }
+                }
+            });
+        });
+
+    </script>
 
 
 </body>
