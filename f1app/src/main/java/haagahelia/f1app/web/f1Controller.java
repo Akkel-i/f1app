@@ -26,9 +26,8 @@ public class f1Controller {
     public String getGuesses(Model model) {
 
         // luo listan kaikista DB arvauksista
-        //model.addAttribute("guesses", guessRepository.findAll()); näyttää kaikki
+        // model.addAttribute("guesses", guessRepository.findAll()); näyttää kaikki
         model.addAttribute("guesses", guessRepository.findByIdNot(Long.valueOf(1)));
-
 
         return "guesslist"; // guesslist.html
     }
@@ -39,9 +38,9 @@ public class f1Controller {
     public String getRightGuesses(Model model) {
 
         // luo listan kaikista DB arvauksista
-        model.addAttribute("guesses", guessRepository.findAll());
-        //model.addAttribute("guesses", guessRepository.findById(1));
-        //model.addAttribute("guesses", guessRepository.findByIdNot(Long.valueOf(1)));
+        // model.addAttribute("guesses", guessRepository.findAll());
+        model.addAttribute("guesses", guessRepository.findByIdNot(Long.valueOf(1)));
+        model.addAttribute("rightGuesses", guessRepository.findById(Long.valueOf(1)));
 
         return "guesslistrightanswer"; // guesslistrightanswer.html
     }
@@ -52,13 +51,14 @@ public class f1Controller {
         return "laptimes"; // laptimes.html
     }
 
-/*     // http://localhost:8080/newguess
-    @RequestMapping(value = "/newguess", method = RequestMethod.GET)
-    public String newguessPage() {
-        return "newguess"; // newguess.html
-    } */
-
-
+    /*
+     * // http://localhost:8080/newguess
+     * 
+     * @RequestMapping(value = "/newguess", method = RequestMethod.GET)
+     * public String newguessPage() {
+     * return "newguess"; // newguess.html
+     * }
+     */
 
     // http://localhost:8080/newguess.html
     @RequestMapping(value = "/newguess", method = RequestMethod.GET)
@@ -67,7 +67,7 @@ public class f1Controller {
         // luo tyhjän Book-olion lomakkeelle
         model.addAttribute("guess", new Guess());
         // luo listan kaikista kategorioista
-        //model.addAttribute("guesses", guessRepository.findAll());
+        // model.addAttribute("guesses", guessRepository.findAll());
         return "newguess"; // newguess.html
     }
 

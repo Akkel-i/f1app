@@ -11,23 +11,29 @@
     <!-- HEADER -->
     <div class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-    
-          <ul class="nav nav-pills">
-            <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="guesslist" class="nav-link active" aria-current="page">Guesses</a></li>
-            <li class="nav-item"><a href="laptimes" class="nav-link">Laptimes</a></li>
-            <li class="nav-item"><a href="newguess" class="nav-link">New Guess</a></li>
-            <li class="nav-item list-group-item-danger "><a href="#" class="nav-link" >Log out</a></li>
-          </ul>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="guesslist" class="nav-link active" aria-current="page">Guesses</a></li>
+                <li class="nav-item"><a href="laptimes" class="nav-link">Laptimes</a></li>
+                <li class="nav-item"><a href="newguess" class="nav-link">New Guess</a></li>
+                <li class="nav-item list-group-item-danger "><a href="#" class="nav-link">Log out</a></li>
+            </ul>
         </header>
-      </div>
+    </div>
 
-<!-- https://getbootstrap.com/docs/3.4/css/ Täällä dokumentaatio -->
-   <h1 >Tässä lista arvauksista </h1>
+    <!-- https://getbootstrap.com/docs/3.4/css/ Täällä dokumentaatio -->
+    <h1>Tässä lista arvauksista </h1>
 
-   <!-- TAULUKKO -->
+    <!-- Voisiko tallentaa looppien ulkopuolella -->
+    <span th:attr="hiddenVariable=${botVar}" style="display:none"></span>
+    <span th:attr="hiddenVariable=${magVar}" style="display:none"></span>
+    <div th:text="${magVar}"></div>
+    <span th:attr="rusVarValue=${rusVarValue}" style="display:none"></span>
+
+    <!-- EKA TAULUKKO -->
     <p>
-   <table class="table table-bordered" style="padding: 40px;">
+    <table class="table table-bordered" style="padding: 40px;">
         <tr>
             <th> id</th>
             <th>GuessMaker</th>
@@ -53,83 +59,236 @@
             <th>Ocon</th>
         </tr>
 
-        <tr th:each="guess : ${guesses}">
+        <tr th:each="rightGuess : ${rightGuesses}">
 
             <td>
-                <span th:text="${guess.id}"></span>
+                <span th:with="idVar=${rightGuess.id}" th:text="${idVar}"></span>
             </td>
             <td>
-                <span th:text="${guess.guessMaker}"></span>
+                <span th:text="${rightGuess.guessMaker}"></span>
             </td>
             <td>
-                <!-- Tässä toimiva millä voi muokata taulun riviä oikean väriseksi, vielä lisää vertailu oikeaan riviin -->
-                <span td th:class="${guess.verGuess == 1} ? 'btn btn-success' : 'btn btn-danger'"  th:text="${guess.verGuess}"></span>
+                <span th:text="${rightGuess.verGuess}"></span>
             </td>
             <td>
-                <span th:text="${guess.perGuess}"></span>
+                <span th:with="perVar=${rightGuess.perGuess}" th:text="${perVar}"></span>
             </td>
             <td>
-                <span th:text="${guess.lecGuess}"></span>
+                <span th:with="lecVar=${rightGuess.lecGuess}" th:text="${lecVar}"></span>
             </td>
             <td>
-                <span th:text="${guess.saiGuess}"></span>
+                <span th:text="${rightGuess.saiGuess}"></span>
             </td>
             <td>
-                <span th:text="${guess.piaGuess}"></span>
+                <span th:text="${rightGuess.piaGuess}"></span>
             </td>
             <td>
-                <span th:text="${guess.norGuess}"></span>
+                <span th:text="${rightGuess.norGuess}"></span>
             </td>
             <td>
-                <span th:text="${guess.rusGuess}"></span>
+                <span id="rusVar" th:text="${rightGuess.rusGuess}"></span>
             </td>
             <td>
-                <span th:text="${guess.hamGuess}"></span>
+                <span th:text="${rightGuess.hamGuess}"></span>
             </td>
             <td>
-                <span th:text="${guess.aloGuess}"></span>
+                <span th:text="${rightGuess.aloGuess}"></span>
             </td>
             <td>
-                <span th:text="${guess.strGuess}"></span>
+                <span th:text="${rightGuess.strGuess}"></span>
             </td>
             <td>
-                <span th:text="${guess.tsuGuess}"></span>
+                <span th:text="${rightGuess.tsuGuess}"></span>
             </td>
             <td>
-                <span th:text="${guess.ricGuess}"></span>
+                <span th:text="${rightGuess.ricGuess}"></span>
             </td>
             <td>
-                <span th:text="${guess.hulGuess}"></span>
+                <span th:text="${rightGuess.hulGuess}"></span>
             </td>
             <td>
-                <span th:text="${guess.magGuess}"></span>
+                <!-- <span th:text="${rightGuess.magGuess}"></span> -->
+                <span th:with="magVar=${rightGuess.magGuess}" th:text="${magVar}"></span>
             </td>
             <td>
-                <span th:text="${guess.albGuess}"></span>
+                <span th:text="${rightGuess.albGuess}"></span>
             </td>
             <td>
-                <span th:text="${guess.sarGuess}"></span>
+                <span th:text="${rightGuess.sarGuess}"></span>
             </td>
             <td>
-                <span th:text="${guess.botGuess}"></span>
+                <span th:with="botVar=${rightGuess.botGuess}" th:text="${botVar}"></span>
             </td>
             <td>
-                <span th:text="${guess.zhoGuess}"></span>
+                <span th:text="${rightGuess.zhoGuess}"></span>
             </td>
             <td>
-                <span th:text="${guess.gasGuess}"></span>
+                <span th:text="${rightGuess.gasGuess}"></span>
             </td>
             <td>
-                <span th:text="${guess.ocoGuess}"></span>
+                <span th:text="${rightGuess.ocoGuess}"></span>
             </td>
 
         </tr>
-
     </table>
-    </p>
+
+
+    <!--    <div th:with="gasVar=${rightGuesses[0].gasGuess}"> -->
+    <div th:with="verCheck=${rightGuesses[0].verGuess},
+        perCheck=${rightGuesses[0].perGuess},
+        lecCheck=${rightGuesses[0].lecGuess},
+        saiCheck=${rightGuesses[0].saiGuess},
+        piaCheck=${rightGuesses[0].piaGuess},
+        norCheck=${rightGuesses[0].norGuess},
+        rusCheck=${rightGuesses[0].rusGuess},
+        hamCheck=${rightGuesses[0].hamGuess},
+        aloCheck=${rightGuesses[0].aloGuess},
+        strCheck=${rightGuesses[0].strGuess},
+        tsuCheck=${rightGuesses[0].tsuGuess},
+        ricCheck=${rightGuesses[0].ricGuess},
+        hulCheck=${rightGuesses[0].hulGuess},
+        magCheck=${rightGuesses[0].magGuess},
+        albCheck=${rightGuesses[0].albGuess},
+        sarCheck=${rightGuesses[0].sarGuess},
+        botCheck=${rightGuesses[0].botGuess},
+        zhoCheck=${rightGuesses[0].zhoGuess},
+        gasCheck=${rightGuesses[0].gasGuess},
+        ocoCheck=${rightGuesses[0].ocoGuess}">
+        <!--     <div th:text="${gasVar}"></div>
+    <div th:text="${ocoVar}"></div>
+    <div th:text="${verVar}"></div> -->
+
+
+
+
+
+
+        <!-- TOka taulukko -->
+        <table class="table table-bordered" style="padding: 40px;">
+            <tr>
+                <th> id</th>
+                <th>GuessMaker</th>
+                <th>Verstappen</th>
+                <th>Perez</th>
+                <th>Leclerc</th>
+                <th>Sainz</th>
+                <th>Piastri</th>
+                <th>Norris</th>
+                <th>Russel</th>
+                <th>Hamilton</th>
+                <th>Alonso</th>
+                <th>Stroll</th>
+                <th>Tsunoda</th>
+                <th>Ricciardo</th>
+                <th>Hulkenberg</th>
+                <th>Magnussen</th>
+                <th>Albon</th>
+                <th>Sargent</th>
+                <th>Bottas</th>
+                <th>Zhou</th>
+                <th>Gasly</th>
+                <th>Ocon</th>
+            </tr>
+
+            <tr th:each="guess : ${guesses}">
+
+                <td>
+                    <span th:text="${guess.id}"></span>
+                </td>
+                <td>
+                    <span th:text="${guess.guessMaker}"></span>
+                </td>
+                <td>
+                    <!-- Tässä toimiva millä voi muokata taulun riviä oikean väriseksi, vielä lisää vertailu oikeaan riviin -->
+                    <span td th:class="${guess.verGuess == verCheck} ? 'btn btn-success' : 'btn btn-danger'"
+                        th:text="${guess.verGuess}"></span>
+                </td>
+                <td>
+                    <!-- <span th:class="${guess.perGuess == perVar} ? 'btn btn-success' : 'btn btn-danger'" -->
+                    <span th:class="${guess.perGuess == perCheck} ? 'btn btn-success' : 'btn btn-danger'"
+                        th:text="${guess.perGuess}"></span>
+                </td>
+                <td>
+                    <!-- <span th:text="${guess.lecGuess}"></span> -->
+                    <span th:class="${guess.lecGuess == lecCheck} ? 'btn btn-success' : 'btn btn-danger'"
+                        th:text="${guess.lecGuess}"></span>
+                </td>
+                <td>
+                    <span th:class="${guess.saiGuess == saiCheck} ? 'btn btn-success' : 'btn btn-danger'"
+                        th:text="${guess.saiGuess}"></span>
+                </td>
+                <td>
+                    <span th:class="${guess.piaGuess == piaCheck} ? 'btn btn-success' : 'btn btn-danger'"
+                        th:text="${guess.piaGuess}"></span>
+                </td>
+                <td>
+                    <span th:class="${guess.norGuess == norCheck} ? 'btn btn-success' : 'btn btn-danger'"
+                        th:text="${guess.norGuess}"></span>
+                </td>
+                <td>
+                    <!-- <span th:text="${guess.rusGuess}"></span> -->
+                    <span th:class="${guess.rusGuess == rusCheck} ? 'btn btn-success' : 'btn btn-danger'"
+                        th:text="${guess.rusGuess}"></span>
+                </td>
+                <td>
+                    <span th:class="${guess.hamGuess == hamCheck} ? 'btn btn-success' : 'btn btn-danger'"
+                        th:text="${guess.hamGuess}"></span>                </td>
+                <td>
+                    <span th:class="${guess.aloGuess == aloCheck} ? 'btn btn-success' : 'btn btn-danger'"
+                        th:text="${guess.aloGuess}"></span>                </td>
+                <td>
+                    <span th:class="${guess.strGuess == strCheck} ? 'btn btn-success' : 'btn btn-danger'"
+                        th:text="${guess.strGuess}"></span>                </td>
+                <td>
+                    <span th:class="${guess.tsuGuess == tsuCheck} ? 'btn btn-success' : 'btn btn-danger'"
+                        th:text="${guess.tsuGuess}"></span>                </td>
+                <td>
+                    <span th:class="${guess.ricGuess == ricCheck} ? 'btn btn-success' : 'btn btn-danger'"
+                        th:text="${guess.ricGuess}"></span>                </td>
+                <td>
+                    <span th:class="${guess.hulGuess == hulCheck} ? 'btn btn-success' : 'btn btn-danger'"
+                        th:text="${guess.hulGuess}"></span>                </td>
+                <td>
+                    <!-- <span th:text="${guess.magGuess}"></span> -->
+                    <span th:class="${guess.magGuess == magCheck} ? 'btn btn-success' : 'btn btn-danger'"
+                        th:text="${guess.magGuess}"></span>
+                </td>
+                <td>
+                    <span th:class="${guess.albGuess == albCheck} ? 'btn btn-success' : 'btn btn-danger'"
+                        th:text="${guess.albGuess}"></span>                </td>
+                <td>
+                    <span th:class="${guess.sarGuess == sarCheck} ? 'btn btn-success' : 'btn btn-danger'"
+                        th:text="${guess.sarGuess}"></span>                </td>
+                <td>
+                    <!-- <span th:text="${guess.botGuess}"></span> -->
+                    <span th:class="${guess.botGuess == botCheck} ? 'btn btn-success' : 'btn btn-danger'"
+                        th:text="${guess.botGuess}"></span>
+                </td>
+                <td>
+                    <span th:class="${guess.zhoGuess == zhoCheck} ? 'btn btn-success' : 'btn btn-danger'"
+                        th:text="${guess.zhoGuess}"></span>                </td>
+                <td>
+                    <!-- <span th:text="${guess.gasGuess}"></span> -->
+                    <span th:class="${guess.gasGuess == gasCheck} ? 'btn btn-success' : 'btn btn-danger'"
+                        th:text="${guess.gasGuess}"></span>
+                </td>
+                <td>
+                    <span th:class="${guess.ocoGuess == ocoCheck} ? 'btn btn-success' : 'btn btn-danger'"
+                        th:text="${guess.ocoGuess}"></span>                </td>
+
+            </tr>
+
+        </table>
+        </p>
+
+    </div>
 
     <p><a th:href="@{/newguess}" class="btn btn-success">Make a new guess</a></p>
 
+
+    <script>
+
+    </script>
 
 </body>
 
