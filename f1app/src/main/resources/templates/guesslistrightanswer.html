@@ -59,6 +59,8 @@
             <th>Ocon</th>
         </tr>
 
+
+
         <tr th:each="rightGuess : ${rightGuesses}">
 
             <td>
@@ -107,8 +109,7 @@
                 <span th:text="${rightGuess.hulGuess}"></span>
             </td>
             <td>
-                <!-- <span th:text="${rightGuess.magGuess}"></span> -->
-                <span th:with="magVar=${rightGuess.magGuess}" th:text="${magVar}"></span>
+                <span th:text="${rightGuess.magGuess}"></span>
             </td>
             <td>
                 <span th:text="${rightGuess.albGuess}"></span>
@@ -117,7 +118,7 @@
                 <span th:text="${rightGuess.sarGuess}"></span>
             </td>
             <td>
-                <span th:with="botVar=${rightGuess.botGuess}" th:text="${botVar}"></span>
+                <span th:text="${rightGuess.botGuess}"></span>
             </td>
             <td>
                 <span th:text="${rightGuess.zhoGuess}"></span>
@@ -132,35 +133,30 @@
         </tr>
     </table>
 
-
-    <!--    <div th:with="gasVar=${rightGuesses[0].gasGuess}"> -->
-    <div th:with="verCheck=${rightGuesses[0].verGuess},
-        perCheck=${rightGuesses[0].perGuess},
-        lecCheck=${rightGuesses[0].lecGuess},
-        saiCheck=${rightGuesses[0].saiGuess},
-        piaCheck=${rightGuesses[0].piaGuess},
-        norCheck=${rightGuesses[0].norGuess},
-        rusCheck=${rightGuesses[0].rusGuess},
-        hamCheck=${rightGuesses[0].hamGuess},
-        aloCheck=${rightGuesses[0].aloGuess},
-        strCheck=${rightGuesses[0].strGuess},
-        tsuCheck=${rightGuesses[0].tsuGuess},
-        ricCheck=${rightGuesses[0].ricGuess},
-        hulCheck=${rightGuesses[0].hulGuess},
-        magCheck=${rightGuesses[0].magGuess},
-        albCheck=${rightGuesses[0].albGuess},
-        sarCheck=${rightGuesses[0].sarGuess},
-        botCheck=${rightGuesses[0].botGuess},
-        zhoCheck=${rightGuesses[0].zhoGuess},
-        gasCheck=${rightGuesses[0].gasGuess},
-        ocoCheck=${rightGuesses[0].ocoGuess}">
-        <!--     <div th:text="${gasVar}"></div>
-    <div th:text="${ocoVar}"></div>
-    <div th:text="${verVar}"></div> -->
-
-
-
-
+<!--             <div th:with="gasVar=${rightGuesses[0].gasGuess}">  -->
+                <div th:with="verCheck=${rightGuesses[0].verGuess},
+                perCheck=${rightGuesses[0].perGuess},
+                lecCheck=${rightGuesses[0].lecGuess},
+                saiCheck=${rightGuesses[0].saiGuess},
+                piaCheck=${rightGuesses[0].piaGuess},
+                norCheck=${rightGuesses[0].norGuess},
+                rusCheck=${rightGuesses[0].rusGuess},
+                hamCheck=${rightGuesses[0].hamGuess},
+                aloCheck=${rightGuesses[0].aloGuess},
+                strCheck=${rightGuesses[0].strGuess},
+                tsuCheck=${rightGuesses[0].tsuGuess},
+                ricCheck=${rightGuesses[0].ricGuess},
+                hulCheck=${rightGuesses[0].hulGuess},
+                magCheck=${rightGuesses[0].magGuess},
+                albCheck=${rightGuesses[0].albGuess},
+                sarCheck=${rightGuesses[0].sarGuess},
+                botCheck=${rightGuesses[0].botGuess},
+                zhoCheck=${rightGuesses[0].zhoGuess},
+                gasCheck=${rightGuesses[0].gasGuess},
+                ocoCheck=${rightGuesses[0].ocoGuess}">
+<!--             <div th:text="${gasVar}"></div>
+            <div th:text="${ocoVar}"></div>
+            <div th:text="${verVar}"></div> -->
 
 
         <!-- TOka taulukko -->
@@ -274,7 +270,8 @@
                 </td>
                 <td>
                     <span th:class="${guess.ocoGuess == ocoCheck} ? 'btn btn-success' : 'btn btn-danger'"
-                        th:text="${guess.ocoGuess}"></span>                </td>
+                        th:text="${guess.ocoGuess}"></span> 
+                </td>
 
             </tr>
 
