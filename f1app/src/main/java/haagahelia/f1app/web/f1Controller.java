@@ -26,9 +26,24 @@ public class f1Controller {
     public String getGuesses(Model model) {
 
         // luo listan kaikista DB arvauksista
-        model.addAttribute("guesses", guessRepository.findAll());
+        //model.addAttribute("guesses", guessRepository.findAll()); näyttää kaikki
+        model.addAttribute("guesses", guessRepository.findByIdNot(Long.valueOf(1)));
+
 
         return "guesslist"; // guesslist.html
+    }
+
+    // näyttää arvaukset oikean vastauksen kanssa
+    // http://localhost:8080/guesslistrightanswer
+    @RequestMapping(value = "/guesslistrightanswer", method = RequestMethod.GET)
+    public String getRightGuesses(Model model) {
+
+        // luo listan kaikista DB arvauksista
+        model.addAttribute("guesses", guessRepository.findAll());
+        //model.addAttribute("guesses", guessRepository.findById(1));
+        //model.addAttribute("guesses", guessRepository.findByIdNot(Long.valueOf(1)));
+
+        return "guesslistrightanswer"; // guesslistrightanswer.html
     }
 
     // http://localhost:8080/laptimes

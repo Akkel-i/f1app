@@ -25,9 +25,6 @@
 <!-- https://getbootstrap.com/docs/3.4/css/ Täällä dokumentaatio -->
    <h1 >Tässä lista arvauksista </h1>
 
-   <p><a th:href="@{/guesslistrightanswer}" class="btn btn-success">Show list with right answer</a></p>
-
-
    <!-- TAULUKKO -->
     <p>
    <table class="table table-bordered" style="padding: 40px;">
@@ -66,7 +63,7 @@
             </td>
             <td>
                 <!-- Tässä toimiva millä voi muokata taulun riviä oikean väriseksi, vielä lisää vertailu oikeaan riviin -->
-                <span th:text="${guess.verGuess}"></span>
+                <span td th:class="${guess.verGuess == 1} ? 'btn btn-success' : 'btn btn-danger'"  th:text="${guess.verGuess}"></span>
             </td>
             <td>
                 <span th:text="${guess.perGuess}"></span>
