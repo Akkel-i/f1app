@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <!--     <script src="../js/laptimes.js"></script>
+ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <title>Laptimes</title>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="index" class="nav-link" aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="guesslist" class="nav-link">Guesses</a></li>
+                <li class="nav-item"><a href="laptimes" class="nav-link active">Laptimes</a></li>
+                <li class="nav-item"><a href="newguess" class="nav-link">New Guess</a></li>
+                <li class="nav-item list-group-item-danger "><a href="#" class="nav-link">Log out</a></li>
+            </ul>
+        </header>
+    </div>
+
+    <!-- https://getbootstrap.com/docs/3.4/css/ Täällä dokumentaatio -->
+    <!-- ESIMERKKI FORM täältä: https://pitwall.app/analysis/compare-lap-times?utf8=%E2%9C%93&season=76&race=1201&main_driver=17&compare_driver=22&button= -->
+
+    <div class="container">
+
+
+        <h1 style="padding: 10px;">
+            Select laps to see!
+        </h1>
+
+
+            <form method="post" action="#" th:action="@{/showlaps}" >
+
+                <label for="racelist">Race</label>
+                <select id="racelist" th:name="race" class="form-control">
+                    <option th:each="race: ${races}" th:value="${race.raceId}" th:text="${race.name}">
+                    </option>
+                </select> 
+
+                <label for="driverlist">Driver</label>
+                <select id="driverlist" th:name="id" class="form-control">
+                    <option th:each="driver: ${drivers}" th:value="${driver.driverId}" 
+                        th:text="${driver.firstName + ' ' + driver.lastName}">
+                    </option>
+                </select>
+
+                <input type="submit" value="Compare laps" />
+            </form>
+
+    </div>
+
+</body>
+
+</html>

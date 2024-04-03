@@ -105,5 +105,13 @@ public class Driver {
                 + ", constructor=" + constructor + ", laps=" + laps + "]";
     }
 
+    public Integer getDriverId() {
+        return driverId;
+    }
+
+    public void setDriverId(Integer driverId) {
+        this.driverId = driverId;
+    }
+
  
 }

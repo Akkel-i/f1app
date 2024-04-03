@@ -2,17 +2,17 @@ Tee CRUD-sovellus, jolla voit ylläpitää jotakin sinulle mielenkiintoista tiet
 
 Toteuta Spring Boot -sovellus käyttäen seuraavia tekniikoita :
 
-Spring Boot Web (MVC)   
-Thymeleaf templates (HTML 5)
-JPA tai JDBCTemplate  (H2 tai PostgreSQL)
+Spring Boot Web (MVC)    # JOO
+Thymeleaf templates (HTML 5) # JOO
+JPA tai JDBCTemplate  (H2 tai PostgreSQL) # JOO
 Spring Boot Security
-Bean Validation (html form, @Valid )
-Spring Boot REST (JSON)
+Bean Validation (html form, @Valid ) # puoliksi, keksi jotain mitä katsoa ja tee controlleri 
+Spring Boot REST (JSON) # JOO
 
 + ja ainakin kahta (2) seuraavista tekniikoista:
 
-JPA-käsittely laajemmin( useita tietokantatauluja, @ManyToMany, findBy...-metodeja etc.)
-Testaus (JUnit,..)
+JPA-käsittely laajemmin( useita tietokantatauluja, @ManyToMany, findBy...-metodeja etc.) # JOO
+Testaus (JUnit,..) # pienesti
 I18n (mm. monikielinen käyttöliittymä) 
 joku muu yllämainitsematon Spring Boot -toiminnallisuus
 AJAX JS/JQuery/React tms.

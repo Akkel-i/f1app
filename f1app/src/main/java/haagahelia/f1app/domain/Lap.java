@@ -16,7 +16,7 @@ public class Lap {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer lapId;
-    private double  lapTime; 
+    private double lapTime; 
 
 
         // Lap ManyToOne Race kisalla on monta kierrosta

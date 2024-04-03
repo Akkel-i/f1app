@@ -1,10 +1,13 @@
 package haagahelia.f1app.domain;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
+// import jakarta.validation.constraints.Size;  jos olisi vaikka viesti niin voisi rajata kokoa 
 
 @Entity
 public class Guess {
@@ -15,7 +18,9 @@ public class Guess {
     @Column(name = "guessId")
     private Integer id;
 /*     private User guessMaker;  vasta kun kunnnon database */
+    @NotNull
     private String guessMaker;
+
     private Integer verGuess;
     private Integer perGuess;
     private Integer lecGuess;

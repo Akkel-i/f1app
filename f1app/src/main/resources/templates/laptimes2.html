@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <title>Teretulemast f1 maailmaan</title>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="index" class="nav-link active" aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="guesslist" class="nav-link">Guesses</a></li>
+                <li class="nav-item"><a href="selectlaps" class="nav-link">Laptimes</a></li>
+                <li class="nav-item"><a href="newguess" class="nav-link">New Guess</a></li>
+                <li class="nav-item list-group-item-danger "><a href="#" class="nav-link">Log out</a></li>
+            </ul>
+        </header>
+    </div>
+
+    <!-- https://getbootstrap.com/docs/3.4/css/ Täällä dokumentaatio -->
+
+    <!-- TEKSTI -->
+    <div class="container">
+        <h1>
+            LAPTIMES 2222222222222222
+        </h1>
+
+        <h1>Selected Race and Driver</h1>
+
+        <h2>Selected Driver ID: <span th:text="${selectedDriverId}"></span></h2>
+        <h2>Selected Race ID: <span th:text="${selectedRaceId}"></span></h2>
+        <!--     <h2>Selected Driver firstname: <span th:text="${selectedDriver.firstName}"></span></h2>-->
+        
+<!--         <table>
+            <tr>
+                <th>asd</th>
+            </tr>
+            <tr th:each="driver : ${selectedDriver}">
+
+                <td>
+                    <span th:text="${driver.firstName}"></span>
+                </td>
+                <td>
+        </table> -->
+
+    </div>
+
+</body>
+
+</html>
