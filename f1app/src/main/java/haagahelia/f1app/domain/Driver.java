@@ -99,11 +99,7 @@ public class Driver {
         this.laps = laps;
     }
 
-    @Override
-    public String toString() {
-        return "Driver [firstName=" + firstName + ", lastName=" + lastName + ", driverNumber=" + driverNumber
-                + ", constructor=" + constructor + ", laps=" + laps + "]";
-    }
+
 
     public Integer getDriverId() {
         return driverId;
@@ -113,5 +109,12 @@ public class Driver {
         this.driverId = driverId;
     }
 
+    @Override
+    public String toString() {
+        return "Driver [driverId=" + driverId + ", firstName=" + firstName + ", lastName=" + lastName
+                + ", driverNumber=" + driverNumber + "]";
+    }
+
+    
  
 }

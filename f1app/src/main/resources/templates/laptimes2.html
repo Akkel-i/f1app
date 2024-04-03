@@ -15,9 +15,9 @@
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
 
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="index" class="nav-link active" aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="index" class="nav-link" aria-current="page">Home</a></li>
                 <li class="nav-item"><a href="guesslist" class="nav-link">Guesses</a></li>
-                <li class="nav-item"><a href="selectlaps" class="nav-link">Laptimes</a></li>
+                <li class="nav-item"><a href="selectlaps" class="nav-link active">Laptimes</a></li>
                 <li class="nav-item"><a href="newguess" class="nav-link">New Guess</a></li>
                 <li class="nav-item list-group-item-danger "><a href="#" class="nav-link">Log out</a></li>
             </ul>
@@ -34,21 +34,38 @@
 
         <h1>Selected Race and Driver</h1>
 
-        <h2>Selected Driver ID: <span th:text="${selectedDriverId}"></span></h2>
-        <h2>Selected Race ID: <span th:text="${selectedRaceId}"></span></h2>
-        <!--     <h2>Selected Driver firstname: <span th:text="${selectedDriver.firstName}"></span></h2>-->
-        
-<!--         <table>
-            <tr>
-                <th>asd</th>
-            </tr>
-            <tr th:each="driver : ${selectedDriver}">
+        <!-- TOIMIVAT!!!! -->
+        <!--         <h2>Selected Driver ID: <span th:text="${selectedDriverId}"></span></h2>
+        <h2>Selected Race ID: <span th:text="${selectedRaceId}"></span></h2>-->
+        <h2>Selected DRIVER OBJECT: <span th:text="${DRIVER}"></span></h2>
+        <h2>Selected RACE OBJECT: <span th:text="${RACE}"></span></h2> 
+        <h2>Selected driver: <span th:text="${DRIVER.firstName + ' ' + DRIVER.lastName}"></span></h2>
+        <h2>Selected race: <span th:text="${RACE.name}"></span></h2>
 
+        <table class="table table-bordered" style="padding: 40px;">
+            <tr>
+                <th>Lapcount</th>
+                <th>Driver</th>
+                <th>Laptimes</th>
+
+            </tr>
+            <tr th:each="lap, i : ${Laps}">
                 <td>
-                    <span th:text="${driver.firstName}"></span>
+                    <span th:text="${i.index + 1}"></span>
                 </td>
                 <td>
-        </table> -->
+                    <span th:text="${lap.driver.firstName}"></span>
+                </td>
+                <!--                 <td>
+                    <span th:text="${lap.lapTime}"></span>
+                </td> -->
+                <td>
+                    <!-- <span th:if="${RACE.raceId == lap.race.raceId}" th:text="${lap.lapTime}"></span> -->
+                    <span th:text="${lap.lapTime}"></span>
+                </td>
+
+
+        </table>
 
     </div>
 

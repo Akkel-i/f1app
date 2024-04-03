@@ -9,4 +9,6 @@ public interface RaceRepository extends CrudRepository<Race, Integer> {
 
     Optional<Race> findById(Integer id);
 
+    List<Race> findByRaceId(Long id);
+
 }

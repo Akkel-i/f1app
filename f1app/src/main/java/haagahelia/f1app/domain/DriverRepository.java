@@ -9,4 +9,5 @@ public interface DriverRepository extends CrudRepository<Driver, Integer> {
 
     Optional<Driver> findById(Integer id);
 
+    List<Driver> findByDriverId(Long id);
 }

@@ -1,5 +1,8 @@
 package haagahelia.f1app.web;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import haagahelia.f1app.domain.Driver;
 import haagahelia.f1app.domain.DriverRepository;
+import haagahelia.f1app.domain.Lap;
 import haagahelia.f1app.domain.LapRepository;
 import haagahelia.f1app.domain.Race;
 import haagahelia.f1app.domain.RaceRepository;
@@ -77,7 +81,17 @@ public class LapController {
         // Pass the selected values to the laptimes2 template
         model.addAttribute("selectedDriverId", driverId);
         model.addAttribute("selectedRaceId", raceId);
-        model.addAttribute("selectedDriver", driverRepository.findById(driverId));
+        //model.addAttribute("selectedDriver", driverRepository.findById(driverId));
+
+        List<Driver> drivers = driverRepository.findByDriverId(Long.valueOf(driverId));
+        Driver driver1 = drivers.get(0);
+        model.addAttribute("DRIVER", driver1);
+
+        List<Race> races = raceRepository.findByRaceId(Long.valueOf(raceId));
+        Race race1 = races.get(0);
+        model.addAttribute("RACE", race1);
+
+        model.addAttribute("Laps", lapRepository.findByDriverAndRace(driver1, race1));
 
 
         return "laptimes2"; // laptimes2.html
