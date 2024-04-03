@@ -8,5 +8,6 @@ public interface GuessRepository extends CrudRepository<Guess, Integer> {
 
     List<Guess> findByIdNot(Long id);
     List<Guess> findById(Long id);
+    List<Guess> findByGuessMaker(String guessMaker);
 }
 
