@@ -63,12 +63,36 @@
                     <!-- <span th:if="${RACE.raceId == lap.race.raceId}" th:text="${lap.lapTime}"></span> -->
                     <span th:text="${lap.lapTime}"></span>
                 </td>
-
-
+                <input type="hidden" id="lapTimes" name="lapTimes" th:value="${#strings.arrayJoin(Laps.![lapTime], ',')}" />
+            </tr>
         </table>
 
     </div>
 
+    <div id="lapTimesDisplay"></div>
+    <script>
+        // Function to display lap times
+        function displayLapTimes() {
+            // Get lap times from hidden input
+            var lapTimesInput = document.getElementById('lapTimes');
+            var lapTimes = lapTimesInput.value.split(',');
+
+            // Clear previous content
+            var lapTimesDisplay = document.getElementById('lapTimesDisplay');
+            lapTimesDisplay.innerHTML = '';
+
+            // Display each lap time
+            lapTimes.forEach(function(lapTime) {
+                var lapTimeSpan = document.createElement('span');
+                lapTimeSpan.textContent = lapTime;
+                lapTimesDisplay.appendChild(lapTimeSpan);
+                lapTimesDisplay.appendChild(document.createElement('br'));
+            });
+        }
+
+        // Call the function when the page loads
+        displayLapTimes();
+    </script>
 </body>
 
 </html>
