@@ -66,7 +66,7 @@ public class Race {
     @Override
     public String toString() {
         return "Race [raceId=" + raceId + ", name=" + name + ", country=" + country + ", lapCount=" + lapCount
-                + ", laps=" + "]";
+                + "]";
     }
 
     
