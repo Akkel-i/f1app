@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
 // import jakarta.validation.constraints.Size;  jos olisi vaikka viesti niin voisi rajata kokoa 
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Guess {
@@ -17,7 +18,8 @@ public class Guess {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "guessId")
     private Integer id;
-/*     private User guessMaker;  vasta kun kunnnon database */
+/*     private User guessMaker;  vasta kun kunnnon database, ei tarvitsekkaan enää kun tähän validation */
+    @Size(min=3, max=25)
     @NotNull
     private String guessMaker;
 

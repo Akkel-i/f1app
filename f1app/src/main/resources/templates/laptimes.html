@@ -34,6 +34,7 @@
     <h2 style="color: red;">Albon (RED)</h2>
     <h1>VS</h1>
     <h2 style="color: blue;">Alonso (BLUE)</h2>
+    <button onclick="drawChart()">paina musta</button>
     <div style="position: relative; left: 25%;">
         <canvas id="myChart" style="width:100%;max-width:800px"></canvas>
     </div>
@@ -48,6 +49,7 @@
 
         /* TÄMÄ PIIRTÄÄ CHARTIN */
 
+        function drawChart() {
         const xValues = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
         new Chart("myChart", {
@@ -74,7 +76,7 @@
                 }
             }
         });
-    
+    }
     </script>
 
 </body>

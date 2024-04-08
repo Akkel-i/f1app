@@ -39,11 +39,13 @@
     </h3>
 
 
-    <!-- FORM EI TALLENNA MAKER JA VER JOSTAIN SYYSTÄ!!! -->
+   
     <form method="POST" action="#" th:action="@{/saveguess}" th:object=${guess}>
-        <p>Tekijä: <input type="text" th:field="${guess.guessMaker}" /></p>
 
-        <!-- ALla perjaatees toimiva dropdown menu.. ver id ei oo oikein?? -->
+        <p>Tekijä: <input type="text" th:field="${guess.guessMaker}" /></p>
+        <p th:if="${#fields.hasErrors('guessMaker')}" th:errors="*{guessMaker}" >Error</p>
+
+        <!-- ALla perjaatees toimiva dropdown menu.. -->
         <!--         <p>Ver: <input type="text" th:field="${guess.verGuess}" /></p> -->
         <p>Ver:
             <select class="dropdown" th:field="${guess.verGuess}">

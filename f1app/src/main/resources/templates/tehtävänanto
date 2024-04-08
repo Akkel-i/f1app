@@ -6,7 +6,7 @@ Spring Boot Web (MVC)    # JOO
 Thymeleaf templates (HTML 5) # JOO
 JPA tai JDBCTemplate  (H2 tai PostgreSQL) # JOO
 Spring Boot Security
-Bean Validation (html form, @Valid ) # puoliksi, keksi jotain mitä katsoa ja tee controlleri 
+Bean Validation (html form, @Valid ) # JOO
 Spring Boot REST (JSON) # JOO
 
 + ja ainakin kahta (2) seuraavista tekniikoista:

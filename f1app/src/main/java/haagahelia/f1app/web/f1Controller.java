@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import haagahelia.f1app.domain.Guess;
 import haagahelia.f1app.domain.GuessRepository;
 
 @Controller
@@ -51,6 +50,9 @@ public class f1Controller {
         return "laptimes"; // laptimes.html
     }
 
+
+
+
     /*
      * // http://localhost:8080/newguess
      * 
@@ -60,6 +62,9 @@ public class f1Controller {
      * }
      */
 
+
+
+     /* 
     // http://localhost:8080/newguess.html
     @RequestMapping(value = "/newguess", method = RequestMethod.GET)
     public String getNewGuessForm(Model model) {
@@ -79,5 +84,5 @@ public class f1Controller {
         // palaa endpoint/guesslist (GET)
         return "redirect:/guesslist";
     }
-
+ */
 }

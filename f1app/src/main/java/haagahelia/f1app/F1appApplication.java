@@ -59,44 +59,44 @@ public class F1appApplication {
 			// luodaan testi kierros ja tallennetaan repoon
 		
 
-			Lap testLap1 = new Lap(1, 1.123, testRace1, testDriver1);
+			Lap testLap1 = new Lap(1.123, testRace1, testDriver1);
 			lapRepository.save(testLap1);
-			Lap testLap2 = new Lap(2, 2.916, testRace1, testDriver1);
+			Lap testLap2 = new Lap(2.916, testRace1, testDriver1);
 			lapRepository.save(testLap2);
-			Lap testLap3 = new Lap(3, 3.861, testRace1, testDriver1);
+			Lap testLap3 = new Lap(3.861, testRace1, testDriver1);
 			lapRepository.save(testLap3);
-			Lap testLap4 = new Lap(4, 4.447, testRace1, testDriver1);
+			Lap testLap4 = new Lap(4.447, testRace1, testDriver1);
 			lapRepository.save(testLap4);
-			Lap testLap5 = new Lap(5, 5.720, testRace1, testDriver1);
+			Lap testLap5 = new Lap(5.720, testRace1, testDriver1);
 			lapRepository.save(testLap5);
-			Lap testLap6 = new Lap(6, 6.645, testRace1, testDriver1);
+			Lap testLap6 = new Lap(6.645, testRace1, testDriver1);
 			lapRepository.save(testLap6);
-			Lap testLap7 = new Lap(7, 7.852, testRace1, testDriver1);
+			Lap testLap7 = new Lap(7.852, testRace1, testDriver1);
 			lapRepository.save(testLap7);
-			Lap testLap8 = new Lap(8, 8.254, testRace1, testDriver1);
+			Lap testLap8 = new Lap(8.254, testRace1, testDriver1);
 			lapRepository.save(testLap8);
-			Lap testLap9 = new Lap(9, 9.767, testRace1, testDriver1);
+			Lap testLap9 = new Lap(9.767, testRace1, testDriver1);
 			lapRepository.save(testLap9);
-			Lap testLap10 = new Lap(10, 10.183, testRace1, testDriver1);
+			Lap testLap10 = new Lap(10.183, testRace1, testDriver1);
 			lapRepository.save(testLap10);
-			Lap testLap11 = new Lap(11, 11.978, testRace1, testDriver1);
+			Lap testLap11 = new Lap(11.978, testRace1, testDriver1);
 			lapRepository.save(testLap11);
-			Lap testLap12 = new Lap(12, 12.123, testRace1, testDriver1);
+			Lap testLap12 = new Lap(12.123, testRace1, testDriver1);
 			lapRepository.save(testLap12);
-			Lap testLap13 = new Lap(13, 13.123, testRace1, testDriver1);
+			Lap testLap13 = new Lap(13.123, testRace1, testDriver1);
 			lapRepository.save(testLap13);
-			Lap testLap14 = new Lap(10, 14.183, testRace2, testDriver1);
+			Lap testLap14 = new Lap(14.183, testRace2, testDriver1);
 			lapRepository.save(testLap14);
-			Lap testLap15 = new Lap(11, 15.978, testRace2, testDriver1);
+			Lap testLap15 = new Lap(15.978, testRace2, testDriver1);
 			lapRepository.save(testLap15);
 			
-			Lap testLap16 = new Lap(12, 16.123, testRace2, testDriver2);
+			Lap testLap16 = new Lap(16.123, testRace2, testDriver2);
 			lapRepository.save(testLap16);
-			Lap testLap17 = new Lap(13, 17.123, testRace2, testDriver2);
+			Lap testLap17 = new Lap(17.123, testRace2, testDriver2);
 			lapRepository.save(testLap17);
-			Lap testLap18 = new Lap(12, 18.123, testRace1, testDriver2);
+			Lap testLap18 = new Lap(18.123, testRace1, testDriver2);
 			lapRepository.save(testLap18);
-			Lap testLap19 = new Lap(13, 19.123, testRace1, testDriver2);
+			Lap testLap19 = new Lap(19.123, testRace1, testDriver2);
 			lapRepository.save(testLap19);
 
 		};

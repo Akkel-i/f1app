@@ -38,8 +38,7 @@ public class Lap {
 
   
 
-    public Lap(Integer lapId, double lapTime, Race race, Driver driver) {
-        this.lapId = lapId;
+    public Lap( double lapTime, Race race, Driver driver) {
         this.lapTime = lapTime;
         this.race = race;
         this.driver = driver;

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
     <title>Teretulemast f1 maailmaan</title>
 </head>
 
@@ -38,9 +40,10 @@
         <!--         <h2>Selected Driver ID: <span th:text="${selectedDriverId}"></span></h2>
         <h2>Selected Race ID: <span th:text="${selectedRaceId}"></span></h2>-->
         <h2>Selected DRIVER OBJECT: <span th:text="${DRIVER}"></span></h2>
-        <h2>Selected RACE OBJECT: <span th:text="${RACE}"></span></h2> 
+        <h2>Selected RACE OBJECT: <span th:text="${RACE}"></span></h2>
         <h2>Selected driver: <span th:text="${DRIVER.firstName + ' ' + DRIVER.lastName}"></span></h2>
         <h2>Selected race: <span th:text="${RACE.name}"></span></h2>
+
 
         <table class="table table-bordered" style="padding: 40px;">
             <tr>
@@ -56,42 +59,74 @@
                 <td>
                     <span th:text="${lap.driver.firstName}"></span>
                 </td>
-                <!--                 <td>
-                    <span th:text="${lap.lapTime}"></span>
-                </td> -->
+
                 <td>
-                    <!-- <span th:if="${RACE.raceId == lap.race.raceId}" th:text="${lap.lapTime}"></span> -->
                     <span th:text="${lap.lapTime}"></span>
                 </td>
-                <input type="hidden" id="lapTimes" name="lapTimes" th:value="${#strings.arrayJoin(Laps.![lapTime], ',')}" />
+                <input type="hidden" id="lapTimes" name="lapTimes"
+                    th:value="${#strings.arrayJoin(Laps.![lapTime], ',')}" />
             </tr>
         </table>
 
     </div>
 
-    <div id="lapTimesDisplay"></div>
+
+    <button onclick="drawChart()">Piirra kaavio</button>
+
+    <!-- Chartti divi -->
+    <div style="position: relative; left: 25%;">
+        <canvas id="myChart" style="width:100%;max-width:800px"></canvas>
+    </div>
+
     <script>
-        // Function to display lap times
-        function displayLapTimes() {
+
+    var lapTimes = [];
+
+        // Hae kierrosajat array:in
+        function getLapTimes() {
             // Get lap times from hidden input
             var lapTimesInput = document.getElementById('lapTimes');
-            var lapTimes = lapTimesInput.value.split(',');
+            lapTimes = lapTimesInput.value.split(',');
 
-            // Clear previous content
-            var lapTimesDisplay = document.getElementById('lapTimesDisplay');
-            lapTimesDisplay.innerHTML = '';
-
-            // Display each lap time
-            lapTimes.forEach(function(lapTime) {
-                var lapTimeSpan = document.createElement('span');
-                lapTimeSpan.textContent = lapTime;
-                lapTimesDisplay.appendChild(lapTimeSpan);
-                lapTimesDisplay.appendChild(document.createElement('br'));
-            });
+ 
         }
 
         // Call the function when the page loads
-        displayLapTimes();
+        getLapTimes();
+
+
+
+        // piirrä chart
+
+        function drawChart() {
+        const xValues = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+
+        new Chart("myChart", {
+            type: "line",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    data: [86.916, 97.861, 88.447, 83.720, 83.645, 83.852, 83.254, 82.767, 83.183, 82.978],
+                    borderColor: "red",
+                    fill: false
+                }, {
+                    data: lapTimes, // TOIMII
+                    borderColor: "blue",
+                    fill: false
+                }]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: "X-axle: lapcount --- Y-axle: laptime",
+                    fontSize: 16
+                }
+            }
+        });
+    }
+
+
     </script>
 </body>
 
