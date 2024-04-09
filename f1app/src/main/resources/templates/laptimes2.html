@@ -34,18 +34,19 @@
             LAPTIMES 2222222222222222
         </h1>
 
-        <h1>Selected Race and Driver</h1>
+        <h1>Selected Race and Drivers</h1>
 
         <!-- TOIMIVAT!!!! -->
         <!--         <h2>Selected Driver ID: <span th:text="${selectedDriverId}"></span></h2>
         <h2>Selected Race ID: <span th:text="${selectedRaceId}"></span></h2>-->
-        <h2>Selected DRIVER OBJECT: <span th:text="${DRIVER}"></span></h2>
+        <h2>Selected DRIVER1 OBJECT: <span th:text="${DRIVER1}"></span></h2>
         <h2>Selected RACE OBJECT: <span th:text="${RACE}"></span></h2>
-        <h2>Selected driver: <span th:text="${DRIVER.firstName + ' ' + DRIVER.lastName}"></span></h2>
+        <h2>Selected driver1: <span th:text="${DRIVER1.firstName + ' ' + DRIVER1.lastName}" style="color:blue;"></span></h2>
+        <h2>Selected driver2: <span th:text="${DRIVER2.firstName + ' ' + DRIVER2.lastName}" style="color:red;"></span></h2>
         <h2>Selected race: <span th:text="${RACE.name}"></span></h2>
 
-
-        <table class="table table-bordered" style="padding: 40px;">
+        <!-- TOIMIVA table yhdelle kuskille -->
+        <!--         <table class="table table-bordered" style="padding: 40px;">
             <tr>
                 <th>Lapcount</th>
                 <th>Driver</th>
@@ -55,6 +56,8 @@
             <tr th:each="lap, i : ${Laps}">
                 <td>
                     <span th:text="${i.index + 1}"></span>
+                    <input type="hidden" id="lapCount" name="lapCount"
+                    th:value="${RACE.lapCount}" />
                 </td>
                 <td>
                     <span th:text="${lap.driver.firstName}"></span>
@@ -66,32 +69,92 @@
                 <input type="hidden" id="lapTimes" name="lapTimes"
                     th:value="${#strings.arrayJoin(Laps.![lapTime], ',')}" />
             </tr>
+        </table> -->
+
+
+        <!-- Melkein toimiva table kahdelle kuskille -->
+        <table class="table table-bordered" style="padding: 40px;">
+            <tr>
+                <th>Lapcount</th>
+                <th>Driver1</th>
+                <th>Laptimes</th>
+
+            </tr>
+            <tr th:each="lap, i : ${Laps}">
+                <td>
+                    <span th:text="${i.index + 1}"></span>
+                    <input type="hidden" id="lapCount" name="lapCount" th:value="${RACE.lapCount}" />
+                </td>
+                <td>
+                    <span th:text="${lap.driver.firstName}"></span>
+                </td>
+
+                <td>
+                    <span th:text="${lap.lapTime}"></span>
+                </td>
+                <input type="hidden" id="lapTimes" name="lapTimes"
+                    th:value="${#strings.arrayJoin(Laps.![lapTime], ',')}" />
+            </tr>
+            <tr>
+                <th>Lapcount</th>
+                <th>Driver2</th>
+                <th>Laptimes</th>
+
+            </tr>
+            <tr th:each="lap, i : ${Laps1}">
+                <td>
+                    <span th:text="${i.index + 1}"></span>
+                </td>
+                <td>
+                    <span th:text="${lap.driver.firstName}"></span>
+                </td>
+
+                <td>
+                    <span th:text="${lap.lapTime}"></span>
+                </td>
+                <input type="hidden" id="lapTimes1" name="lapTimes"
+                    th:value="${#strings.arrayJoin(Laps1.![lapTime], ',')}" />
+            </tr>
         </table>
 
     </div>
 
 
-    <button onclick="drawChart()">Piirra kaavio</button>
+
+<!-- vain testi divi console logiin -->
+    <div id="testi"></div>
+
+    <button onclick="drawChart()">Piirrä kaavio</button>
 
     <!-- Chartti divi -->
-    <div style="position: relative; left: 25%;">
+    <div style="position: relative;">
         <canvas id="myChart" style="width:100%;max-width:800px"></canvas>
     </div>
 
     <script>
 
-    var lapTimes = [];
+        // muuttujat
+        var lapTimes = [];
+        var lapTimes1 = [];
+        var xValues = [];
+        var lapcount = 0;
 
         // Hae kierrosajat array:in
         function getLapTimes() {
-            // Get lap times from hidden input
+            // hakee kierrosajat hidden input
             var lapTimesInput = document.getElementById('lapTimes');
             lapTimes = lapTimesInput.value.split(',');
 
- 
+            var lapTimesInput1 = document.getElementById('lapTimes1');
+            lapTimes1 = lapTimesInput1.value.split(',');
+
+            // monta kierrosta charttiin
+            var lapCountInput = document.getElementById('lapCount');
+            lapcount = lapCountInput.value;
+
         }
 
-        // Call the function when the page loads
+        // hakee kierrosajat kun sivu avataan
         getLapTimes();
 
 
@@ -99,32 +162,38 @@
         // piirrä chart
 
         function drawChart() {
-        const xValues = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
-        new Chart("myChart", {
-            type: "line",
-            data: {
-                labels: xValues,
-                datasets: [{
-                    data: [86.916, 97.861, 88.447, 83.720, 83.645, 83.852, 83.254, 82.767, 83.183, 82.978],
-                    borderColor: "red",
-                    fill: false
-                }, {
-                    data: lapTimes, // TOIMII
-                    borderColor: "blue",
-                    fill: false
-                }]
-            },
-            options: {
-                legend: { display: false },
-                title: {
-                    display: true,
-                    text: "X-axle: lapcount --- Y-axle: laptime",
-                    fontSize: 16
-                }
+            //  tämä looppi täyttää arrayn 1-kierrosluku ja täyttää chartin X-akselin
+            for (var i = 1; i <= lapcount; i++) {
+                xValues.push(i);
             }
-        });
-    }
+            /* const xValues = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14]; */
+
+
+            new Chart("myChart", {
+                type: "line",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        data: lapTimes1,
+                        borderColor: "red",
+                        fill: false
+                    }, {
+                        data: lapTimes, // TOIMII, ottaa kuskin kierrosajat ja laittaa charttiin
+                        borderColor: "blue",
+                        fill: false
+                    }]
+                },
+                options: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: "X-axle: lapcount --- Y-axle: laptime",
+                        fontSize: 16
+                    }
+                }
+            });
+        }
 
 
     </script>

@@ -47,15 +47,23 @@
                     </option>
                 </select> 
 
-                <label for="driverlist">Driver</label>
-                <select id="driverlist" th:name="id" class="form-control">
+                <label for="driverlist">Driver1</label>
+                <select id="driverlist" th:name="id1" class="form-control">
+                    <option th:each="driver: ${drivers}" th:value="${driver.driverId}" 
+                        th:text="${driver.firstName + ' ' + driver.lastName}">
+                    </option>
+                </select>
+
+                <label for="driverlist">Driver2</label>
+                <select id="driverlist" th:name="id2" class="form-control">
                     <option th:each="driver: ${drivers}" th:value="${driver.driverId}" 
                         th:text="${driver.firstName + ' ' + driver.lastName}">
                     </option>
                 </select>
 
                 <input type="hidden" th:name="race" th:object="${race}" />
-                <input type="hidden" th:name="driver" th:object="${driver}" />            
+                <input type="hidden" th:name="driver1" th:object="${driver}" />            
+                <input type="hidden" th:name="driver2" th:object="${driver}" />            
 
                 <input type="submit" value="Compare laps" />
             </form>
