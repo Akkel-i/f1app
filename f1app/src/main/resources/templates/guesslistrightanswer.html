@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
 <head>
     <title>guess List</title>
@@ -17,7 +18,9 @@
                 <li class="nav-item"><a href="guesslist" class="nav-link active" aria-current="page">Guesses</a></li>
                 <li class="nav-item"><a href="selectlaps" class="nav-link">Laptimes</a></li>
                 <li class="nav-item"><a href="newguess" class="nav-link">New Guess</a></li>
-                <li class="nav-item list-group-item-danger "><a href="#" class="nav-link">Log out</a></li>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Sign Out" class="btn btn-sm btn-danger" />
+                </form>
             </ul>
         </header>
     </div>
@@ -133,8 +136,8 @@
         </tr>
     </table>
 
-<!--             <div th:with="gasVar=${rightGuesses[0].gasGuess}">  -->
-                <div th:with="verCheck=${rightGuesses[0].verGuess},
+    <!--             <div th:with="gasVar=${rightGuesses[0].gasGuess}">  -->
+    <div th:with="verCheck=${rightGuesses[0].verGuess},
                 perCheck=${rightGuesses[0].perGuess},
                 lecCheck=${rightGuesses[0].lecGuess},
                 saiCheck=${rightGuesses[0].saiGuess},
@@ -154,7 +157,7 @@
                 zhoCheck=${rightGuesses[0].zhoGuess},
                 gasCheck=${rightGuesses[0].gasGuess},
                 ocoCheck=${rightGuesses[0].ocoGuess}">
-<!--             <div th:text="${gasVar}"></div>
+        <!--             <div th:text="${gasVar}"></div>
             <div th:text="${ocoVar}"></div>
             <div th:text="${verVar}"></div> -->
 
@@ -228,22 +231,28 @@
                 </td>
                 <td>
                     <span th:class="${guess.hamGuess == hamCheck} ? 'btn btn-success' : 'btn btn-danger'"
-                        th:text="${guess.hamGuess}"></span>                </td>
+                        th:text="${guess.hamGuess}"></span>
+                </td>
                 <td>
                     <span th:class="${guess.aloGuess == aloCheck} ? 'btn btn-success' : 'btn btn-danger'"
-                        th:text="${guess.aloGuess}"></span>                </td>
+                        th:text="${guess.aloGuess}"></span>
+                </td>
                 <td>
                     <span th:class="${guess.strGuess == strCheck} ? 'btn btn-success' : 'btn btn-danger'"
-                        th:text="${guess.strGuess}"></span>                </td>
+                        th:text="${guess.strGuess}"></span>
+                </td>
                 <td>
                     <span th:class="${guess.tsuGuess == tsuCheck} ? 'btn btn-success' : 'btn btn-danger'"
-                        th:text="${guess.tsuGuess}"></span>                </td>
+                        th:text="${guess.tsuGuess}"></span>
+                </td>
                 <td>
                     <span th:class="${guess.ricGuess == ricCheck} ? 'btn btn-success' : 'btn btn-danger'"
-                        th:text="${guess.ricGuess}"></span>                </td>
+                        th:text="${guess.ricGuess}"></span>
+                </td>
                 <td>
                     <span th:class="${guess.hulGuess == hulCheck} ? 'btn btn-success' : 'btn btn-danger'"
-                        th:text="${guess.hulGuess}"></span>                </td>
+                        th:text="${guess.hulGuess}"></span>
+                </td>
                 <td>
                     <!-- <span th:text="${guess.magGuess}"></span> -->
                     <span th:class="${guess.magGuess == magCheck} ? 'btn btn-success' : 'btn btn-danger'"
@@ -251,10 +260,12 @@
                 </td>
                 <td>
                     <span th:class="${guess.albGuess == albCheck} ? 'btn btn-success' : 'btn btn-danger'"
-                        th:text="${guess.albGuess}"></span>                </td>
+                        th:text="${guess.albGuess}"></span>
+                </td>
                 <td>
                     <span th:class="${guess.sarGuess == sarCheck} ? 'btn btn-success' : 'btn btn-danger'"
-                        th:text="${guess.sarGuess}"></span>                </td>
+                        th:text="${guess.sarGuess}"></span>
+                </td>
                 <td>
                     <!-- <span th:text="${guess.botGuess}"></span> -->
                     <span th:class="${guess.botGuess == botCheck} ? 'btn btn-success' : 'btn btn-danger'"
@@ -262,7 +273,8 @@
                 </td>
                 <td>
                     <span th:class="${guess.zhoGuess == zhoCheck} ? 'btn btn-success' : 'btn btn-danger'"
-                        th:text="${guess.zhoGuess}"></span>                </td>
+                        th:text="${guess.zhoGuess}"></span>
+                </td>
                 <td>
                     <!-- <span th:text="${guess.gasGuess}"></span> -->
                     <span th:class="${guess.gasGuess == gasCheck} ? 'btn btn-success' : 'btn btn-danger'"
@@ -270,7 +282,7 @@
                 </td>
                 <td>
                     <span th:class="${guess.ocoGuess == ocoCheck} ? 'btn btn-success' : 'btn btn-danger'"
-                        th:text="${guess.ocoGuess}"></span> 
+                        th:text="${guess.ocoGuess}"></span>
                 </td>
 
             </tr>

@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
 <head>
     <title>guess List</title>
@@ -11,27 +12,29 @@
     <!-- HEADER -->
     <div class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-    
-          <ul class="nav nav-pills">
-            <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="guesslist" class="nav-link active" aria-current="page">Guesses</a></li>
-            <li class="nav-item"><a href="selectlaps" class="nav-link">Laptimes</a></li>
-            <li class="nav-item"><a href="newguess" class="nav-link">New Guess</a></li>
-            <li class="nav-item list-group-item-danger "><a href="#" class="nav-link" >Log out</a></li>
-          </ul>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="guesslist" class="nav-link active" aria-current="page">Guesses</a></li>
+                <li class="nav-item"><a href="selectlaps" class="nav-link">Laptimes</a></li>
+                <li class="nav-item"><a href="newguess" class="nav-link">New Guess</a></li>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Sign Out" class="btn btn-sm btn-danger" />
+                </form>
+            </ul>
         </header>
-      </div>
+    </div>
 
-<!-- https://getbootstrap.com/docs/3.4/css/ Täällä dokumentaatio -->
-   <h1 >Tässä lista arvauksista </h1>
+    <!-- https://getbootstrap.com/docs/3.4/css/ Täällä dokumentaatio -->
+    <h1>Tässä lista arvauksista </h1>
 
-   <p><a th:href="@{/guesslistrightanswer}" class="btn btn-success">Show list with right answer</a></p>
+    <p><a th:href="@{/guesslistrightanswer}" class="btn btn-success">Show list with right answer</a></p>
 
 
-   <!-- TAULUKKO -->
-   
+    <!-- TAULUKKO -->
+
     <p>
-   <table class="table table-bordered" style="padding: 40px;">
+    <table class="table table-bordered" style="padding: 40px;">
         <tr>
             <th> id</th>
             <th>GuessMaker</th>
@@ -127,6 +130,14 @@
                 <span th:text="${guess.ocoGuess}"></span>
             </td>
 
+            <td sec:authorize="hasAuthority('ADMIN')">
+                <a th:href="@{/deleteguess/{id}(id = ${guess.id})}">
+                    <button type="button" th:href="@{/deleteguess/{id}(id = ${guess.id})}"
+                        class="btn btn-danger">Delete</button>
+                    <a th:href="@{/editguess/{id}(id = ${guess.id})}">
+                        <button type="button" th:href="@{/editguess/{id}(id = ${guess.id})}"
+                            class="btn btn-success">Edit</button>
+            </td>
         </tr>
 
     </table>

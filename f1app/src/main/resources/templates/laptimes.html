@@ -23,7 +23,9 @@
                 <li class="nav-item"><a href="guesslist" class="nav-link">Guesses</a></li>
                 <li class="nav-item"><a href="laptimes" class="nav-link active">Laptimes</a></li>
                 <li class="nav-item"><a href="newguess" class="nav-link">New Guess</a></li>
-                <li class="nav-item list-group-item-danger "><a href="#" class="nav-link">Log out</a></li>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Sign Out" class="btn btn-sm btn-danger" />
+                </form>
             </ul>
         </header>
     </div>
@@ -50,33 +52,33 @@
         /* TÄMÄ PIIRTÄÄ CHARTIN */
 
         function drawChart() {
-        const xValues = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+            const xValues = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
-        new Chart("myChart", {
-            type: "line",
-            data: {
-                labels: xValues,
-                datasets: [{
-                    data: [86.916, 97.861, 88.447, 83.720, 83.645, 83.852, 83.254, 82.767, 83.183, 82.978],
-                    borderColor: "red",
-                    fill: false
-                }, {
-                    data: [83.294, 83.196, 82.795, 82.769, 83.345, 82.608, 82.939, 82.904, 83.187, 83.455], 
-                    /* data: file, */
-                    borderColor: "blue",
-                    fill: false
-                }]
-            },
-            options: {
-                legend: { display: false },
-                title: {
-                    display: true,
-                    text: "X-axle: lapcount --- Y-axle: laptime",
-                    fontSize: 16
+            new Chart("myChart", {
+                type: "line",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        data: [86.916, 97.861, 88.447, 83.720, 83.645, 83.852, 83.254, 82.767, 83.183, 82.978],
+                        borderColor: "red",
+                        fill: false
+                    }, {
+                        data: [83.294, 83.196, 82.795, 82.769, 83.345, 82.608, 82.939, 82.904, 83.187, 83.455],
+                        /* data: file, */
+                        borderColor: "blue",
+                        fill: false
+                    }]
+                },
+                options: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: "X-axle: lapcount --- Y-axle: laptime",
+                        fontSize: 16
+                    }
                 }
-            }
-        });
-    }
+            });
+        }
     </script>
 
 </body>

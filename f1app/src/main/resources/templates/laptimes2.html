@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
 <head>
     <meta charset="UTF-8">
@@ -21,7 +22,9 @@
                 <li class="nav-item"><a href="guesslist" class="nav-link">Guesses</a></li>
                 <li class="nav-item"><a href="selectlaps" class="nav-link active">Laptimes</a></li>
                 <li class="nav-item"><a href="newguess" class="nav-link">New Guess</a></li>
-                <li class="nav-item list-group-item-danger "><a href="#" class="nav-link">Log out</a></li>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Sign Out" class="btn btn-sm btn-danger" />
+                </form>
             </ul>
         </header>
     </div>
@@ -41,8 +44,10 @@
         <h2>Selected Race ID: <span th:text="${selectedRaceId}"></span></h2>-->
         <h2>Selected DRIVER1 OBJECT: <span th:text="${DRIVER1}"></span></h2>
         <h2>Selected RACE OBJECT: <span th:text="${RACE}"></span></h2>
-        <h2>Selected driver1: <span th:text="${DRIVER1.firstName + ' ' + DRIVER1.lastName}" style="color:blue;"></span></h2>
-        <h2>Selected driver2: <span th:text="${DRIVER2.firstName + ' ' + DRIVER2.lastName}" style="color:red;"></span></h2>
+        <h2>Selected driver1: <span th:text="${DRIVER1.firstName + ' ' + DRIVER1.lastName}" style="color:blue;"></span>
+        </h2>
+        <h2>Selected driver2: <span th:text="${DRIVER2.firstName + ' ' + DRIVER2.lastName}" style="color:red;"></span>
+        </h2>
         <h2>Selected race: <span th:text="${RACE.name}"></span></h2>
 
         <!-- TOIMIVA table yhdelle kuskille -->
@@ -121,7 +126,7 @@
 
 
 
-<!-- vain testi divi console logiin -->
+    <!-- vain testi divi console logiin -->
     <div id="testi"></div>
 
     <button onclick="drawChart()">Piirrä kaavio</button>

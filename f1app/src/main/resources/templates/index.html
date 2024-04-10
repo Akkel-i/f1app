@@ -1,36 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
-    <title>Teretulemast f1 maailmaan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+  <title>Teretulemast f1 maailmaan</title>
 </head>
+
 <body>
-        <!-- HEADER -->
-        <div class="container">
-            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        
-              <ul class="nav nav-pills">
-                <li class="nav-item"><a href="index" class="nav-link active" aria-current="page">Home</a></li>
-                <li class="nav-item"><a href="guesslist" class="nav-link">Guesses</a></li>
-                <li class="nav-item"><a href="selectlaps" class="nav-link">Laptimes</a></li>
-                <li class="nav-item"><a href="newguess" class="nav-link">New Guess</a></li>
-                <li class="nav-item list-group-item-danger "><a href="#" class="nav-link" >Log out</a></li>
-              </ul>
-            </header>
-          </div>
+  <!-- HEADER -->
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
 
-          <!-- https://getbootstrap.com/docs/3.4/css/ Täällä dokumentaatio -->
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="index" class="nav-link active" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="guesslist" class="nav-link">Guesses</a></li>
+        <li class="nav-item"><a href="selectlaps" class="nav-link">Laptimes</a></li>
+        <li class="nav-item"><a href="newguess" class="nav-link">New Guess</a></li>
+        <form th:action="@{/logout}" method="post">
+          <input type="submit" value="Sign Out" class="btn btn-sm btn-danger" />
+        </form>
 
-          <!-- TEKSTI -->
-    <h1>
-        HEllou welecome!!
-    </h1>
 
-    <p><a th:href="@{/guesslist}" class="btn btn-success">See all guesses</a></p>
+      </ul>
+    </header>
+  </div>
+
+  <!-- https://getbootstrap.com/docs/3.4/css/ Täällä dokumentaatio -->
+
+  <!-- TEKSTI -->
+  <h1>
+    HEllou welecome!!
+  </h1>
+
+  <p><a th:href="@{/guesslist}" class="btn btn-success">See all guesses</a></p>
 
 
 </body>
+
 </html>

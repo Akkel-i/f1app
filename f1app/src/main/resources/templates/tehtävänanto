@@ -7,7 +7,7 @@ Thymeleaf templates (HTML 5) # JOO
 JPA tai JDBCTemplate  (H2 tai PostgreSQL) # JOO
 Spring Boot Security
 Bean Validation (html form, @Valid ) # JOO
-Spring Boot REST (JSON) # JOO
+Spring Boot REST (JSON) # tee manuaaliset
 
 + ja ainakin kahta (2) seuraavista tekniikoista:
 
