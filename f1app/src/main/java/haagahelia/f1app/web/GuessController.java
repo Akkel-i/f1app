@@ -27,7 +27,7 @@ public class GuessController {
     @RequestMapping(value = "/newguess", method = RequestMethod.GET)
     public String getNewGuessForm(Model model) {
 
-        // luo tyhjän Book-olion lomakkeelle
+        // luo tyhjän Guess-olion lomakkeelle
         model.addAttribute("guess", new Guess());
 
         return "newguess"; // newguess.html

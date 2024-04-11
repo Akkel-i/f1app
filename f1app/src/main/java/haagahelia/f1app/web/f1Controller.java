@@ -45,40 +45,4 @@ public class f1Controller {
     }
 
 
-
-
-
-
-    /*
-     * // http://localhost:8080/newguess
-     * 
-     * @RequestMapping(value = "/newguess", method = RequestMethod.GET)
-     * public String newguessPage() {
-     * return "newguess"; // newguess.html
-     * }
-     */
-
-
-
-     /* 
-    // http://localhost:8080/newguess.html
-    @RequestMapping(value = "/newguess", method = RequestMethod.GET)
-    public String getNewGuessForm(Model model) {
-
-        // luo tyhjän Book-olion lomakkeelle
-        model.addAttribute("guess", new Guess());
-        // luo listan kaikista kategorioista
-        // model.addAttribute("guesses", guessRepository.findAll());
-        return "newguess"; // newguess.html
-    }
-
-    @RequestMapping(value = "/saveguess", method = RequestMethod.POST)
-    public String saveGuess(Guess newGuess, Model model) {
-
-        // tallentaa uuden Guess:in DB
-        guessRepository.save(newGuess);
-        // palaa endpoint/guesslist (GET)
-        return "redirect:/guesslist";
-    }
- */
 }

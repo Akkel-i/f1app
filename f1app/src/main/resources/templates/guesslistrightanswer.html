@@ -91,7 +91,7 @@
                 <span th:text="${rightGuess.norGuess}"></span>
             </td>
             <td>
-                <span id="rusVar" th:text="${rightGuess.rusGuess}"></span>
+                <span th:text="${rightGuess.rusGuess}"></span>
             </td>
             <td>
                 <span th:text="${rightGuess.hamGuess}"></span>
@@ -136,7 +136,6 @@
         </tr>
     </table>
 
-    <!--             <div th:with="gasVar=${rightGuesses[0].gasGuess}">  -->
     <div th:with="verCheck=${rightGuesses[0].verGuess},
                 perCheck=${rightGuesses[0].perGuess},
                 lecCheck=${rightGuesses[0].lecGuess},
@@ -157,9 +156,6 @@
                 zhoCheck=${rightGuesses[0].zhoGuess},
                 gasCheck=${rightGuesses[0].gasGuess},
                 ocoCheck=${rightGuesses[0].ocoGuess}">
-        <!--             <div th:text="${gasVar}"></div>
-            <div th:text="${ocoVar}"></div>
-            <div th:text="${verVar}"></div> -->
 
 
         <!-- TOka taulukko -->

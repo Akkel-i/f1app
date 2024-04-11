@@ -230,26 +230,14 @@
             </select>
         </p>
 
-        <!--       <label for="categorylist">Category</label>
-         <select id="categorylist" th:field="*{category}" class="form-control">
-            <option th:each="category: ${categories}" th:value="${category.categoryId}" th:text="${category.name}">
-            </option>
-        </select> -->
+
 
         <input type="submit" value="Add" />
     </form>
 
     <script>
-        // poistaa dropdown valikosta poistetun valinnan, eli ei voi olla duplicaateja
-        /*         $(function () {
-                    $('.dropdown').change(function () {
-                        dropdownval = $(this).val();
-                        if (dropdownval !== "") {
-                            $('.dropdown').not(this).find('option[value="' + dropdownval + '"]').remove();
-                        }
-                    });
-                }); */
 
+        // Luo muuttujan joka pitää huolen että samaa lukua ei voi valita uudelleen
         // https://jsfiddle.net/a2amhqL3/
         $(function () {
             var removedOptions = {};
