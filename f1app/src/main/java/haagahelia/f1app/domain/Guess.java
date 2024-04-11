@@ -18,7 +18,7 @@ public class Guess {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "guessId")
     private Integer id;
-/*     private User guessMaker;  vasta kun kunnnon database, ei tarvitsekkaan enää kun tähän validation */
+/*     private User guessMaker;  Tämän voisi nyt liittää, mutta tässä on validation niin pysyy string */
     @Size(min=3, max=25)
     @NotNull
     private String guessMaker;

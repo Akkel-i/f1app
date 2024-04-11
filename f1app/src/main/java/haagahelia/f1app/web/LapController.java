@@ -45,33 +45,8 @@ public class LapController {
         return "selectlaps"; // selectlaps.html
     }
 
-    /*
-     * @RequestMapping(value = "/showlaps", method = RequestMethod.POST)
-     * public String showSelectlapsPage(@ModelAttribute Driver
-     * driver, @ModelAttribute Race race, Model model) {
-     * public String showSelectlapsPage(@RequestParam("driverId") Integer driverId,
-     * Model model){
-     * 
-     * //model.addAttribute("race", race);
-     * //model.addAttribute("driver", driver);
-     * 
-     * model.addAttribute("thedriver", driverRepository.findById(driverId));
-     * 
-     * return "laptimes2"; // laptimes2.html
-     * }
-     */
 
-/*     @PostMapping("/showlaps")
-    public String showSelectlapsPage(@ModelAttribute("races") Integer selectedRaceId,
-            @ModelAttribute("drivers") Integer selectedDriverId,
-            Model model) {
-        // Pass the selected values to the laptimes2 template
-        model.addAttribute("selectedRaceId", selectedRaceId);
-        model.addAttribute("selectedDriverId", selectedDriverId);
-
-        return "laptimes2"; // laptimes2.html
-    } */
-
+    // paljon kokeilua tässä
     @PostMapping("/showlaps")
     public String showSelectlapsPage(@RequestParam(value = "id1") Integer driver1Id, @RequestParam(value = "id2") Integer driver2Id,
     @RequestParam(value = "race") Integer raceId,
@@ -111,5 +86,11 @@ public class LapController {
 
         return "laptimes2"; // laptimes2.html
     }
+
+        // http://localhost:8080/laptimes
+        @RequestMapping(value = "/laptimes", method = RequestMethod.GET)
+        public String laptimesPage() {
+            return "laptimes"; // laptimes.html
+        }
 
 }

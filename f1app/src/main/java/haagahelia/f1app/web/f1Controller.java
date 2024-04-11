@@ -44,11 +44,7 @@ public class f1Controller {
         return "guesslistrightanswer"; // guesslistrightanswer.html
     }
 
-    // http://localhost:8080/laptimes
-    @RequestMapping(value = "/laptimes", method = RequestMethod.GET)
-    public String laptimesPage() {
-        return "laptimes"; // laptimes.html
-    }
+
 
 
 
