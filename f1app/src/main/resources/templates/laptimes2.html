@@ -34,15 +34,16 @@
     <!-- TEKSTI -->
     <div class="container">
         <h1>
-            LAPTIMES Sivusto
+            LAPTIMES page
         </h1>
 
         <h1>Selected Race and Drivers</h1>
 
         <!-- TOIMIVAT!!!! -->
 
-        <h2>Selected DRIVER1 OBJECT: <span th:text="${DRIVER1}"></span></h2>
-        <h2>Selected RACE OBJECT: <span th:text="${RACE}"></span></h2>
+<!--         <h2>Selected DRIVER1 OBJECT: <span th:text="${DRIVER1}"></span></h2>
+        <h2>Selected RACE OBJECT: <span th:text="${RACE}"></span></h2> -->
+        
         <h2>Selected driver1: <span th:text="${DRIVER1.firstName + ' ' + DRIVER1.lastName}" style="color:blue;"></span>
         </h2>
         <h2>Selected driver2: <span th:text="${DRIVER2.firstName + ' ' + DRIVER2.lastName}" style="color:red;"></span>
@@ -127,6 +128,12 @@
 
     <!-- vain testi divi console logiin -->
     <div id="testi"></div>
+
+    <!-- Kuskien nimet ja värit sivun loppuun -->
+    <h2>Selected driver1: <span th:text="${DRIVER1.firstName + ' ' + DRIVER1.lastName}" style="color:blue;"></span>
+    </h2>
+    <h2>Selected driver2: <span th:text="${DRIVER2.firstName + ' ' + DRIVER2.lastName}" style="color:red;"></span>
+    </h2>
 
 <!--     nappi joka piirtää chartin -->   
  <button onclick="drawChart()">Piirrä kaavio</button>
