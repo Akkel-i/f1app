@@ -31,7 +31,7 @@ public class RestDriverController {
             return driverRepository.findById(driverId);
         }      
         
-        // REST service to save new driver
+
         @RequestMapping(value="/drivers", method = RequestMethod.POST)
         public @ResponseBody Driver saveDriverRest(@RequestBody Driver newdriver) {	
             return driverRepository.save(newdriver);

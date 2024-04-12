@@ -32,12 +32,15 @@
   <!-- https://getbootstrap.com/docs/3.4/css/ Täällä dokumentaatio -->
 
   <!-- TEKSTI -->
-  <h1>
-    HEllou welecome to the world of F1!!
-  </h1>
+  <div class="container">
+    <h1>
+      HEllou welecome to the world of F1!!
+    </h1>
 
-  <p><a th:href="@{/guesslist}" class="btn btn-success">See all guesses</a></p>
+    <p><a th:href="@{/guesslist}" class="btn btn-success">See all guesses</a></p>
 
+    <img th:src="@{pic.png}" alt="f1">
+  </div>
 
 </body>
 

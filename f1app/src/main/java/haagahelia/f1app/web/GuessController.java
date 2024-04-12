@@ -37,7 +37,7 @@ public class GuessController {
     public String saveGuess(@Valid @ModelAttribute("guess") Guess newGuess, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
-            return "newguess"; // if error, return to making guess
+            return "newguess"; // 
         } else {
             // tallentaa uuden Guess:in DB
             guessRepository.save(newGuess);
@@ -55,7 +55,7 @@ public class GuessController {
         System.out.println("Valittu kirja on id: " + guessId);
         System.out.println(guessRepository.findOneGuessById(guessId));
 
-        // muokkaa kirjaa
+        // muokkaa arvausta
         model.addAttribute("guess", guessToEdit);
 
         return "editguess"; // editguess.html

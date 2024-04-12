@@ -33,7 +33,6 @@ public class RestLapController {
         return lapRepository.findById(lapId);
     }      
     
-    // REST service to save new lap
     @RequestMapping(value="/laps", method = RequestMethod.POST)
     public @ResponseBody Lap savelapRest(@RequestBody Lap newlap) {	
         return lapRepository.save(newlap);
